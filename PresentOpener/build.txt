@@ -1,6 +1,6 @@
 ﻿displayName = Present Opener
 author = Planterror
-version = 2.0.0.1
+version = 2.0.1
 homepage = https://forums.terraria.org/index.php?threads/present-opener-get-the-present-you-really-want.77707/
 weakReferences = ThoriumMod, SpiritMod
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*

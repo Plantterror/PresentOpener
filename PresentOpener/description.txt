@@ -14,6 +14,9 @@ Changelog:
 1.2 - Added Spirit support for all the items in the Goodie Bags.
 2.0 - Revamped crafting stations. Doubled the cost of all recipes for balance.
 2.0.0.1 - Mod is now open source.
+2.0.1 - Added a recipe to make presents and goodie bags.
+
+MOD WILL NO LONGER RECIEVE UPDATES UNLESS A NEW VERSION OF TMODLOADER COMES OUT
 
 Mod recommendations:
 Fargowiltas = Enables Christmas and Halloween regardless of date.
