@@ -53,7 +53,7 @@ namespace PresentOpener
             recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.GoodieBag, 4);
             recipe.AddTile(mod, "GoodieProcessor");
-            recipe.SetResult(ItemID.RottenEgg, 45);
+            recipe.SetResult(ItemID.RottenEgg, 40);
             recipe.AddRecipe();
 
             recipe = new ModRecipe(mod);

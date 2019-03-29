@@ -8,19 +8,19 @@ namespace PresentOpener
         public static void AddRecipes(Mod mod)
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Present, 4);
+            recipe.AddIngredient(ItemID.Present, 2);
             recipe.AddTile(mod, "PresentProcessor");
             recipe.SetResult(ItemID.GreenCandyCaneBlock, 50);
             recipe.AddRecipe();
 
             recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Present, 4);
+            recipe.AddIngredient(ItemID.Present, 2);
             recipe.AddTile(mod, "PresentProcessor");
             recipe.SetResult(ItemID.CandyCaneBlock, 50);
             recipe.AddRecipe();
 
             recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Present, 4);
+            recipe.AddIngredient(ItemID.Present, 2);
             recipe.AddTile(mod, "PresentProcessor");
             recipe.SetResult(ItemID.Coal);
             recipe.AddRecipe();
@@ -56,7 +56,7 @@ namespace PresentOpener
             recipe.AddRecipe();
 
             recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Present, 30);
+            recipe.AddIngredient(ItemID.Present, 20);
             recipe.AddTile(mod, "PresentProcessor");
             recipe.SetResult(ItemID.Toolbox);
             recipe.AddRecipe();
@@ -68,7 +68,7 @@ namespace PresentOpener
             recipe.AddRecipe();
 
             recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Present, 6);
+            recipe.AddIngredient(ItemID.Present, 10);
             recipe.AddTile(mod, "PresentProcessor");
             recipe.SetResult(ItemID.Holly);
             recipe.AddRecipe();
@@ -88,29 +88,29 @@ namespace PresentOpener
             recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Present, 8);
             recipe.AddTile(mod, "PresentProcessor");
-            recipe.SetResult(ItemID.Eggnog, 4);
+            recipe.SetResult(ItemID.Eggnog, 2);
             recipe.AddRecipe();
 
             recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Present, 8);
             recipe.AddTile(mod, "PresentProcessor");
-            recipe.SetResult(ItemID.SugarCookie);
+            recipe.SetResult(ItemID.SugarCookie, 2);
             recipe.AddRecipe();
 
             recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Present, 8);
             recipe.AddTile(mod, "PresentProcessor");
-            recipe.SetResult(ItemID.GingerbreadCookie);
+            recipe.SetResult(ItemID.GingerbreadCookie, 2);
             recipe.AddRecipe();
 
             recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Present, 8);
             recipe.AddTile(mod, "PresentProcessor");
-            recipe.SetResult(ItemID.ChristmasPudding);
+            recipe.SetResult(ItemID.ChristmasPudding, 2);
             recipe.AddRecipe();
 
             recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Present, 4);
+            recipe.AddIngredient(ItemID.Present, 2);
             recipe.AddTile(mod, "PresentProcessor");
             recipe.SetResult(ItemID.PineTreeBlock, 50);
             recipe.AddRecipe();
