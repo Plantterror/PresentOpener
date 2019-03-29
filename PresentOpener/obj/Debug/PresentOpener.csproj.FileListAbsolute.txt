@@ -19,3 +19,5 @@ C:\Users\asper\Documents\My Games\Terraria\ModLoader\Mod Sources\PresentOpener\o
 C:\Users\asper\Documents\My Games\Terraria\ModLoader\Mod Sources\PresentOpener\obj\Debug\PresentOpener.dll
 C:\Users\asper\Documents\My Games\Terraria\ModLoader\Mod Sources\PresentOpener\obj\Debug\PresentOpener.pdb
 C:\Users\asper\Documents\My Games\Terraria\ModLoader\Mod Sources\PresentOpener\bin\Debug\tModLoader.xml
+C:\Users\asper\Documents\My Games\Terraria\ModLoader\Mod Sources\PresentOpener\bin\Debug\log4net.dll
+C:\Users\asper\Documents\My Games\Terraria\ModLoader\Mod Sources\PresentOpener\bin\Debug\ReLogic.dll

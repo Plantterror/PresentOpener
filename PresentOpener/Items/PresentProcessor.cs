@@ -23,7 +23,7 @@ namespace PresentOpener.Items
             item.width = 10;
             item.height = 8;
             item.maxStack = 99;
-            item.value = 20000; //Worth 2 gold.
+            item.value = 50000; //Worth 1 gold.
             item.rare = 6; 
         }
 

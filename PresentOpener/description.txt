@@ -7,16 +7,12 @@ Credit goes to Maker of Scratchock for making the icon and the station sprites.
 
 Changelog:
 1.0 - Mod Released
-1.0.0.1 - Minor error
 1.0.1 - Added Coal to the list of crafts.
 1.1 - Added Thorium support with their Mistletoe item.
-1.1.0.1 - Shortened name
 1.2 - Added Spirit support for all the items in the Goodie Bags.
 2.0 - Revamped crafting stations. Doubled the cost of all recipes for balance.
-2.0.0.1 - Mod is now open source.
 2.0.1 - Added a recipe to make presents and goodie bags.
-
-MOD WILL NO LONGER RECIEVE UPDATES UNLESS A NEW VERSION OF TMODLOADER COMES OUT
+3.0.0 - Made a nice UI for the crafting stations instead of crafting recipes.
 
 Mod recommendations:
 Fargowiltas = Enables Christmas and Halloween regardless of date.

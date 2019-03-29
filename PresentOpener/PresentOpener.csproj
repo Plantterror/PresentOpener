@@ -31,8 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\References\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553" />
     <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553" />
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553" />
+    <Reference Include="ReLogic">
+      <HintPath>..\..\References\ReLogic.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,9 +59,10 @@
     <Compile Include="ChristmasRecipes.cs" />
     <Compile Include="HalloweenRecipes.cs" />
     <Compile Include="PresentOpener.cs" />
-    <Compile Include="SpiritRecipes.cs" />
     <Compile Include="Tiles\GoodieProcessor.cs" />
     <Compile Include="Tiles\PresentProcessor.cs" />
+    <Compile Include="UI\PresentProcessUI.cs" />
+    <Compile Include="UI\VanillaItemSlotWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
