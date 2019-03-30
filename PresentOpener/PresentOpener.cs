@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using PresentOpener.UI;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -23,7 +24,6 @@ namespace PresentOpener
             if (PresentProcessUI.Visible)
             {
                 PresentProcessInterface?.Update(gameTime);
-                PresentProcessInterface.Draw(Main.spriteBatch, gameTime);
             }
             PresentProcessUI?.Update(gameTime);
         }
@@ -36,6 +36,26 @@ namespace PresentOpener
 
             PresentProcessInterface = new UserInterface();
             PresentProcessInterface.SetState(PresentProcessUI);
+        }
+
+
+        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
+        {
+            int inventoryIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Inventory"));
+            if (inventoryIndex != -1)
+            {
+                layers.Insert(inventoryIndex, new LegacyGameInterfaceLayer(
+                    "Present Processor: Present Processor UI",
+                    delegate {
+                        if (PresentProcessUI.Visible)
+                        {
+                            PresentProcessInterface.Draw(Main.spriteBatch, new GameTime());
+                        }
+                        return true;
+                    },
+                    InterfaceScaleType.UI)
+                );
+            }
         }
 
         public override void AddRecipeGroups() //Recipe groups for Ice Queen and Pumpking weapon drops, respectively. Also Added an Evil Hardmode Crafting Ingredient group.
