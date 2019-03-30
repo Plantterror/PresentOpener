@@ -5,3 +5,4 @@ homepage = https://forums.terraria.org/index.php?threads/present-opener-get-the-
 weakReferences = ThoriumMod
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*
 includePDB = true
+languageVersion=6

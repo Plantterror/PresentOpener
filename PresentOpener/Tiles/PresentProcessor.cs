@@ -34,10 +34,10 @@ namespace PresentOpener.Tiles //This is in the folder Tiles, so we add the .Tile
             Main.mouseRightRelease = false;
             Main.playerInventory = true;
             PresentProcessUI.Visible = true;
-            if (Vector2.Distance(player.position.ToWorldCoordinates(), Main.LocalPlayer.Center) > 100)
-            {
-                PresentProcessUI.Visible = false;
-            }
+            //if (Vector2.Distance(player.position.ToWorldCoordinates(), Main.LocalPlayer.Center) > 100)
+            //{
+            //    PresentProcessUI.Visible = false;
+            //}
             
         }
         public override void MouseOver(int i, int j)
