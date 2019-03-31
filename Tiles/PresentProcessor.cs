@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using PresentOpener.UI;
+using Terraria.UI;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -34,28 +34,7 @@ namespace PresentOpener.Tiles //This is in the folder Tiles, so we add the .Tile
             Main.mouseRightRelease = false;
             Main.playerInventory = true;
             PresentOpener.Instance.PresentProcessInterface.SetState(PresentOpener.PresentProcessUI);
-            if (!Main.playerInventory)
-            {
-                PresentOpener.Instance.PresentProcessInterface.SetState(null);
-            }
-        }
-        public override void MouseOver(int i, int j)
-        {
-            Player player = Main.LocalPlayer;
-            Tile tile = Main.tile[i, j];
-            int left = i;
-            int top = j;
-            if (tile.frameX % 36 != 0)
-            {
-                left--;
-            }
-            if (tile.frameY != 0)
-            {
-                top--;
-            }
-            player.noThrow = 2;
-            player.showItemIcon2 = -1;
-            player.showItemIcon = true;
+
         }
         public override bool HasSmartInteract()
         {

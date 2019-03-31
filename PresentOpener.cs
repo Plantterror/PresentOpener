@@ -23,14 +23,14 @@ namespace PresentOpener
             base.UpdateUI(gameTime);
             if (Instance.PresentProcessInterface.CurrentState != null)
             {
-                PresentProcessInterface?.Update(gameTime);
+                PresentProcessInterface.Update(gameTime);
             }
-            PresentProcessUI?.Update(gameTime);
+            PresentProcessUI.Update(gameTime);
         }
 
         public override void Load()
         {
-            PresentProcessUI = new UI.PresentProcessUI();
+            PresentProcessUI = new PresentProcessUI();
             PresentProcessUI.Activate();
 
             PresentProcessInterface = new UserInterface();

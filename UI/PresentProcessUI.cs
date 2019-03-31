@@ -16,7 +16,7 @@ namespace PresentOpener.UI
         {
             if (!Main.playerInventory)
             {
-                PresentOpener.Instance.PresentProcessInterface.SetState(PresentOpener.PresentProcessUI);
+                PresentOpener.Instance.PresentProcessInterface.SetState(null);
             }
         }
         public override void OnInitialize()
