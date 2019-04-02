@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using PresentOpener.UI;
 using Terraria;
 using Terraria.ModLoader;
@@ -20,7 +21,6 @@ namespace PresentOpener.Tiles //This is in the folder Tiles, so we add the .Tile
             name.SetDefault("Present Processor");
             AddMapEntry(new Color(128, 128, 128), name);
             disableSmartCursor = true;
-
         }
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
@@ -32,13 +32,7 @@ namespace PresentOpener.Tiles //This is in the folder Tiles, so we add the .Tile
             Player player = Main.LocalPlayer;
             Tile tile = Main.tile[i, j];
             Main.mouseRightRelease = false;
-            Main.playerInventory = true;
-            PresentProcessUI.Visible = true;
-            //if (Vector2.Distance(player.position.ToWorldCoordinates(), Main.LocalPlayer.Center) > 100)
-            //{
-            //    PresentProcessUI.Visible = false;
-            //}
-            
+            OpenUI();
         }
         public override void MouseOver(int i, int j)
         {
@@ -61,6 +55,34 @@ namespace PresentOpener.Tiles //This is in the folder Tiles, so we add the .Tile
         public override bool HasSmartInteract()
         {
             return true;
+        }
+
+        public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
+        {
+            if (PresentProcessUI.Visible)
+            {
+                var PlayerPos = Main.LocalPlayer.position.ToTileCoordinates();
+
+                if (PlayerPos.X - i > 7
+                    || PlayerPos.X - i < -7
+                    || PlayerPos.Y - j > 6
+                    || PlayerPos.Y - j < -6)
+                {
+                    CloseUI();
+                }
+            }
+        }
+
+        public void OpenUI()
+            => SetUI(true);
+
+        public void CloseUI()
+            => SetUI(false);
+
+        private void SetUI(bool open)
+        {
+            PresentProcessUI.Visible = open;
+            Main.playerInventory = open;
         }
     }
 }
