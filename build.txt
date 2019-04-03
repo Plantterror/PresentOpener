@@ -1,5 +1,5 @@
 ﻿displayName = Present Opener
-author = Planterror
+author = Planterror, Panini
 version = 3.0.0
 homepage = https://forums.terraria.org/index.php?threads/present-opener-get-the-present-you-really-want.77707/
 weakReferences = ThoriumMod
