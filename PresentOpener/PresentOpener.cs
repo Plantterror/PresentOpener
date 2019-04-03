@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using PresentOpener.UI;
-using System.Collections.Generic;
 using Terraria;
+using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -21,41 +21,21 @@ namespace PresentOpener
         public override void UpdateUI(GameTime gameTime)
         {
             base.UpdateUI(gameTime);
-            if (PresentProcessUI.Visible)
+            if (Instance.PresentProcessInterface.CurrentState != null)
             {
-                PresentProcessInterface?.Update(gameTime);
+                PresentProcessInterface.Update(gameTime);
             }
-            PresentProcessUI?.Update(gameTime);
+            PresentProcessUI.Update(gameTime);
         }
 
         public override void Load()
         {
-            base.Load();
-            PresentProcessUI = new UI.PresentProcessUI();
+            PresentProcessUI = new PresentProcessUI();
             PresentProcessUI.Activate();
 
             PresentProcessInterface = new UserInterface();
-            PresentProcessInterface.SetState(PresentProcessUI);
-        }
+            PresentProcessInterface.SetState(new PresentProcessUI());
 
-
-        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
-        {
-            int inventoryIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Inventory"));
-            if (inventoryIndex != -1)
-            {
-                layers.Insert(inventoryIndex, new LegacyGameInterfaceLayer(
-                    "Present Processor: Present Processor UI",
-                    delegate {
-                        if (PresentProcessUI.Visible)
-                        {
-                            PresentProcessInterface.Draw(Main.spriteBatch, new GameTime());
-                        }
-                        return true;
-                    },
-                    InterfaceScaleType.UI)
-                );
-            }
         }
 
         public override void AddRecipeGroups() //Recipe groups for Ice Queen and Pumpking weapon drops, respectively. Also Added an Evil Hardmode Crafting Ingredient group.
@@ -115,6 +95,24 @@ namespace PresentOpener
                 recipe.AddTile(this, "PresentProcessor");
                 recipe.SetResult(ThoriumMod, "Mistletoe");
                 recipe.AddRecipe();
+            }
+        }
+        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
+        {
+            int inventoryIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Inventory"));
+            if (inventoryIndex != -1)
+            {
+                layers.Insert(inventoryIndex, new LegacyGameInterfaceLayer(
+                    "Present Processor: Present Processor UI",
+                    delegate {
+                        if (Instance.PresentProcessInterface.CurrentState != null)
+                        {
+                            PresentProcessInterface.Draw(Main.spriteBatch, new GameTime());
+                        }
+                        return true;
+                    },
+                    InterfaceScaleType.UI)
+                );
             }
         }
     }

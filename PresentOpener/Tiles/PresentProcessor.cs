@@ -1,9 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using PresentOpener.UI;
+using Terraria.UI;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using Microsoft.Xna.Framework.Graphics;
+using PresentOpener.UI;
 
 namespace PresentOpener.Tiles //This is in the folder Tiles, so we add the .Tiles to help autoload know what it's doing.
 {
@@ -21,6 +22,7 @@ namespace PresentOpener.Tiles //This is in the folder Tiles, so we add the .Tile
             name.SetDefault("Present Processor");
             AddMapEntry(new Color(128, 128, 128), name);
             disableSmartCursor = true;
+
         }
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
@@ -33,40 +35,22 @@ namespace PresentOpener.Tiles //This is in the folder Tiles, so we add the .Tile
             Tile tile = Main.tile[i, j];
             Main.mouseRightRelease = false;
             OpenUI();
-        }
-        public override void MouseOver(int i, int j)
-        {
-            Player player = Main.LocalPlayer;
-            Tile tile = Main.tile[i, j];
-            int left = i;
-            int top = j;
-            if (tile.frameX % 36 != 0)
-            {
-                left--;
-            }
-            if (tile.frameY != 0)
-            {
-                top--;
-            }
-            player.noThrow = 2;
-            player.showItemIcon2 = -1;
-            player.showItemIcon = true;
+
         }
         public override bool HasSmartInteract()
         {
             return true;
         }
-
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
-            if (PresentProcessUI.Visible)
+            if (PresentOpener.Instance.PresentProcessInterface.CurrentState != null)
             {
                 var PlayerPos = Main.LocalPlayer.position.ToTileCoordinates();
 
                 if (PlayerPos.X - i > 7
-                    || PlayerPos.X - i < -7
-                    || PlayerPos.Y - j > 6
-                    || PlayerPos.Y - j < -6)
+                   || PlayerPos.X - i < -7
+                   || PlayerPos.Y - j > 6
+                   || PlayerPos.Y - j < -6)
                 {
                     CloseUI();
                 }
@@ -74,15 +58,22 @@ namespace PresentOpener.Tiles //This is in the folder Tiles, so we add the .Tile
         }
 
         public void OpenUI()
-            => SetUI(true);
+           => SetUI(true);
 
         public void CloseUI()
-            => SetUI(false);
+           => SetUI(false);
 
         private void SetUI(bool open)
         {
-            PresentProcessUI.Visible = open;
-            Main.playerInventory = open;
+            if (open == true)
+            {
+                PresentOpener.Instance.PresentProcessInterface.SetState(new PresentProcessUI());
+                Main.playerInventory = true;
+            }
+            else
+            {
+                PresentOpener.Instance.PresentProcessInterface.SetState(null);
+            }
         }
     }
 }
