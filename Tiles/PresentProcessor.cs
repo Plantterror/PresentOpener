@@ -3,8 +3,6 @@ using Terraria.UI;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Microsoft.Xna.Framework.Graphics;
-using PresentOpener.UI;
 
 namespace PresentOpener.Tiles //This is in the folder Tiles, so we add the .Tiles to help autoload know what it's doing.
 {
@@ -34,46 +32,13 @@ namespace PresentOpener.Tiles //This is in the folder Tiles, so we add the .Tile
             Player player = Main.LocalPlayer;
             Tile tile = Main.tile[i, j];
             Main.mouseRightRelease = false;
-            OpenUI();
+            Main.playerInventory = true;
+            PresentOpener.Instance.PresentProcessInterface.SetState(PresentOpener.PresentProcessUI);
 
         }
         public override bool HasSmartInteract()
         {
             return true;
-        }
-        public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
-        {
-            if (PresentOpener.Instance.PresentProcessInterface.CurrentState != null)
-            {
-                var PlayerPos = Main.LocalPlayer.position.ToTileCoordinates();
-
-                if (PlayerPos.X - i > 7
-                   || PlayerPos.X - i < -7
-                   || PlayerPos.Y - j > 6
-                   || PlayerPos.Y - j < -6)
-                {
-                    CloseUI();
-                }
-            }
-        }
-
-        public void OpenUI()
-           => SetUI(true);
-
-        public void CloseUI()
-           => SetUI(false);
-
-        private void SetUI(bool open)
-        {
-            if (open == true)
-            {
-                PresentOpener.Instance.PresentProcessInterface.SetState(new PresentProcessUI());
-                Main.playerInventory = true;
-            }
-            else
-            {
-                PresentOpener.Instance.PresentProcessInterface.SetState(null);
-            }
         }
     }
 }
