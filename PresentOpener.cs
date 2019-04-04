@@ -13,10 +13,13 @@ namespace PresentOpener
 
     {
         internal UserInterface PresentProcessInterface = new UserInterface();
-
         internal static PresentProcessUI PresentProcessUI;
-
-        internal static PresentOpener Instance = new PresentOpener();
+        internal static PresentOpener Instance;
+        public PresentOpener()
+        {
+            Instance = this;
+        }
+        internal static ConfigServer configServer;
 
         public override void UpdateUI(GameTime gameTime)
         {
