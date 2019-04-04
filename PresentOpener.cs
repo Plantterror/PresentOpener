@@ -15,11 +15,12 @@ namespace PresentOpener
         internal UserInterface PresentProcessInterface = new UserInterface();
         internal static PresentProcessUI PresentProcessUI;
         internal static PresentOpener Instance;
+        internal static ConfigServer configServer;
+
         public PresentOpener()
         {
             Instance = this;
         }
-        internal static ConfigServer configServer;
 
         public override void UpdateUI(GameTime gameTime)
         {
@@ -71,9 +72,7 @@ namespace PresentOpener
 
         public override void AddRecipes() //Recipes are sorted into categories because I do not want 75+ recipes clogging this code.
         {
-            ChristmasRecipes.AddRecipes(this);
-            HalloweenRecipes.AddRecipes(this);
-            
+
             ModRecipe recipe = new ModRecipe(this); //Making Presents and Goodie Bags
             recipe.AddIngredient(ItemID.Silk, 5);
             recipe.AddIngredient(ItemID.SoulofLight, 2);
@@ -90,14 +89,11 @@ namespace PresentOpener
             recipe.SetResult(ItemID.GoodieBag);
             recipe.AddRecipe();
 
-            Mod ThoriumMod = ModLoader.GetMod("ThoriumMod"); //Thorium support for their Mistletoe item, located in the present.
-            if (ThoriumMod != null)
-            {
-                recipe = new ModRecipe(this);
-                recipe.AddIngredient(ItemID.Present, 15);
-                recipe.AddTile(this, "PresentProcessor");
-                recipe.SetResult(ThoriumMod, "Mistletoe");
-                recipe.AddRecipe();
+
+            if (configServer.ChangeProcessor == true)
+            { 
+                ChristmasRecipes.AddRecipes(this);
+                HalloweenRecipes.AddRecipes(this);
             }
         }
         public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)

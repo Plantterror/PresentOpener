@@ -180,6 +180,16 @@ namespace PresentOpener
             recipe.AddTile(mod, "PresentProcessorTile");
             recipe.SetResult(ItemID.SnowGlobe);
             recipe.AddRecipe();
+
+            Mod ThoriumMod = ModLoader.GetMod("ThoriumMod"); //Thorium support for their Mistletoe item, located in the present.
+            if (ThoriumMod != null)
+            {
+                recipe = new ModRecipe(mod);
+                recipe.AddIngredient(ItemID.Present, 15);
+                recipe.AddTile(mod, "PresentProcessorTile");
+                recipe.SetResult(ThoriumMod, "Mistletoe");
+                recipe.AddRecipe();
+            }
         }
     }
 }
