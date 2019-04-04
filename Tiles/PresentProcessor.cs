@@ -65,12 +65,14 @@ namespace PresentOpener.Tiles //This is in the folder Tiles, so we add the .Tile
 
         public override void RightClick(int i, int j)
         {
-            base.RightClick(i, j);
-            Player player = Main.LocalPlayer;
-            Tile tile = Main.tile[i, j];
-            Main.mouseRightRelease = false;
-            OpenUI();
-
+            if (PresentOpener.configServer.ChangeProcessor == false)
+            {
+                base.RightClick(i, j);
+                Player player = Main.LocalPlayer;
+                Tile tile = Main.tile[i, j];
+                Main.mouseRightRelease = false;
+                OpenUI();
+            }
         }
         public override bool HasSmartInteract()
         {
