@@ -1,6 +1,6 @@
 # PresentOpener
 
-PresentOpener is a mod for Terraria using tModLoader. You can install it via the in game mod browser or from the .tmod file inside the repository.
+PresentOpener is a mod for Terraria using tModLoader. You can install it via the in game mod browser or from the .tmod file inside the releases page.
 
 ## What does it do?
 
