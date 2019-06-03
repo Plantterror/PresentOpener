@@ -1,50 +1,22 @@
-﻿using Microsoft.Xna.Framework;
-using PresentOpener.UI;
-using Terraria;
-using System.Collections.Generic;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.UI;
 
 namespace PresentOpener
 {
-    public class PresentOpener : Mod //Self explanitory.
-
+    public class PresentOpener : Mod 
     {
-        internal UserInterface PresentProcessInterface = new UserInterface();
-        internal static PresentProcessUI PresentProcessUI;
-        internal static PresentOpener Instance;
-        internal static ConfigServer configServer;
+        internal static RecipeBuilder Recipes = new RecipeBuilder();
 
-        public PresentOpener()
+        public override void Unload() //Unloading stuff is very important.
         {
-            Instance = this;
-        }
-
-        public override void UpdateUI(GameTime gameTime)
-        {
-            base.UpdateUI(gameTime);
-            if (Instance.PresentProcessInterface.CurrentState != null)
-            {
-                PresentProcessInterface.Update(gameTime);
-            }
-            PresentProcessUI.Update(gameTime);
-        }
-
-        public override void Load()
-        {
-            PresentProcessUI = new PresentProcessUI();
-            PresentProcessUI.Activate();
-
-            PresentProcessInterface = new UserInterface();
-            PresentProcessInterface.SetState(new PresentProcessUI());
-
+            Recipes = null;
         }
 
         public override void AddRecipeGroups() //Recipe groups for Ice Queen and Pumpking weapon drops, respectively. Also Added an Evil Hardmode Crafting Ingredient group.
         {
-            RecipeGroup group = new RecipeGroup(() => Language.GetTextValue("Any") + " Ice Queen Drop", new int[] //Lang.misc is outdated, but it shouldn't affect mod building. If you want good performance, use Language.GetTextValue.
+            RecipeGroup group = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Ice Queen Drop", new int[] //Lang.misc is outdated, but it shouldn't affect mod building.
             {
                     ItemID.BlizzardStaff,
                     ItemID.NorthPole,
@@ -52,7 +24,7 @@ namespace PresentOpener
             });
             RecipeGroup.RegisterGroup("IceQueenDrop", group);
 
-            group = new RecipeGroup(() => Language.GetTextValue("Any") + " Pumpking Drop", new int[]
+            group = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Pumpking Drop", new int[]
             {
                     ItemID.TheHorsemansBlade,
                     ItemID.BatScepter,
@@ -62,7 +34,7 @@ namespace PresentOpener
             });
             RecipeGroup.RegisterGroup("PumpkingDrop", group);
 
-            group = new RecipeGroup(() => Language.GetTextValue("Any") + "Evil Hardmode Component", new int[]
+            group = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + "Evil Hardmode Component", new int[]
             {
                     ItemID.CursedFlame,
                     ItemID.Ichor
@@ -70,49 +42,9 @@ namespace PresentOpener
             RecipeGroup.RegisterGroup("EvilHardmode", group);
         }
 
-        public override void AddRecipes() //Recipes are sorted into categories because I do not want 75+ recipes clogging this code.
+        public override void AddRecipes() //Recipes are moved to the RecipeBuilder, since having all 75+ recipes here would be chaos.
         {
-
-            ModRecipe recipe = new ModRecipe(this); //Making Presents and Goodie Bags
-            recipe.AddIngredient(ItemID.Silk, 5);
-            recipe.AddIngredient(ItemID.SoulofLight, 2);
-            recipe.AddIngredient(ItemID.CrystalShard);
-            recipe.AddTile(TileID.Loom);
-            recipe.SetResult(ItemID.Present);
-            recipe.AddRecipe();
-
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ItemID.Silk, 5);
-            recipe.AddIngredient(ItemID.SoulofNight, 2);
-            recipe.AddRecipeGroup("EvilHardmode");
-            recipe.AddTile(TileID.Loom);
-            recipe.SetResult(ItemID.GoodieBag);
-            recipe.AddRecipe();
-
-
-            if (configServer.ChangeProcessor == true)
-            { 
-                ChristmasRecipes.AddRecipes(this);
-                HalloweenRecipes.AddRecipes(this);
-            }
-        }
-        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
-        {
-            int inventoryIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Inventory"));
-            if (inventoryIndex != -1)
-            {
-                layers.Insert(inventoryIndex, new LegacyGameInterfaceLayer(
-                    "Present Processor: Present Processor UI",
-                    delegate {
-                        if (Instance.PresentProcessInterface.CurrentState != null)
-                        {
-                            PresentProcessInterface.Draw(Main.spriteBatch, new GameTime());
-                        }
-                        return true;
-                    },
-                    InterfaceScaleType.UI)
-                );
-            }
+            Recipes.LoadRecipes(this);
         }
     }
 }

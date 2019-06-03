@@ -31,13 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net">
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\References\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553" />
     <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553" />
     <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553" />
-    <Reference Include="Newtonsoft.Json">
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\References\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="ReLogic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -54,18 +56,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigServer.cs" />
     <Compile Include="GlobalNPCs\EventBossTrees.cs" />
-    <Compile Include="ChristmasRecipes.cs" />
-    <Compile Include="HalloweenRecipes.cs" />
+    <Compile Include="Items\GoodieProcessor.cs" />
+    <Compile Include="Items\PresentProcessor.cs" />
     <Compile Include="PresentOpener.cs" />
+    <Compile Include="RecipeBuilder.cs" />
     <Compile Include="Tiles\GoodieProcessor.cs" />
     <Compile Include="Tiles\PresentProcessor.cs" />
-    <Compile Include="UI\PresentProcessUI.cs" />
-    <Compile Include="UI\VanillaItemSlotWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Items\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +75,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>"C:\Program Files (x86)\Steam\steamapps\common\Terraria\tModLoaderServer.exe" -build "$(ProjectDir)\" -eac "$(TargetPath)"</PostBuildEvent>
+    <PostBuildEvent>"C:\Program Files (x86)\Steam\steamapps\common\Terraria\tModLoaderServer.exe" -build "$(ProjectDir)"</PostBuildEvent>
   </PropertyGroup>
 </Project>
