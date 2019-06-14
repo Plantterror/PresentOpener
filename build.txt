@@ -2,6 +2,6 @@
 author = Planterror
 version = 2.0.1.3
 homepage = https://forums.terraria.org/index.php?threads/present-opener-get-the-present-you-really-want.77707/
-weakReferences = ThoriumMod
+weakReferences = ThoriumMod, SpiritMod
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*
 includePDB = false

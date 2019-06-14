@@ -1,4 +1,4 @@
-﻿v2.0.1.3 - Minor fixes, code cleanup + 0.11 support.
+﻿v2.0.1.3 - Minor fixes, code cleanup. 
 
 Unlike real life, this mod lets you choose what you get from your presents!
 

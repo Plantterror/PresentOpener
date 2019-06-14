@@ -8,8 +8,7 @@ namespace PresentOpener
     public class PresentOpener : Mod 
     {
         internal static RecipeBuilder Recipes = new RecipeBuilder();
-
-        public override void Unload() //Unloading stuff is very important.
+        public override void Unload()
         {
             Recipes = null;
         }

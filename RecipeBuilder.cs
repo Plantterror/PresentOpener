@@ -6,12 +6,15 @@ namespace PresentOpener
 {
     public class RecipeBuilder
     {
+        private bool goodieBagUsed;
         internal static RecipeBuilder Instance;
-        public List<ProcessorItem> PresentItems { get; }
-        public List<ProcessorItem> GoodieBagItems { get; }
+        public List<ProcessorItem> PresentItems { get; set; }
+        public List<ProcessorItem> GoodieBagItems { get; set; }
+        public List<ProcessorItemModded> ModdedItems { get; set; }
 
         public RecipeBuilder()
         {
+            goodieBagUsed = ProcessorItemModded.GoodieBagIsUsed;
             Instance = this;
             PresentItems = new List<ProcessorItem>()
             {
@@ -106,14 +109,50 @@ namespace PresentOpener
                 new ProcessorItem(ItemID.GhostMask, 4),
                 new ProcessorItem(ItemID.GhostShirt, 4)
             };
+            //Modded content will be listed here for easy additions. If there are other mods that add items to presents or goodie bags, contact me.
+            Mod ThoriumMod = ModLoader.GetMod("ThoriumMod");
+            if (ThoriumMod != null)
+            {
+                ModdedItems = new List<ProcessorItemModded>()
+                {
+                    new ProcessorItemModded(false, "Mistletoe", 20)
+                };
+            }
+            Mod SpiritMod = ModLoader.GetMod("SpiritMod");
+            if (SpiritMod != null)
+            {
+                ModdedItems = new List<ProcessorItemModded>()
+                {
+                    new ProcessorItemModded(true, "MaskHulk", 50),
+                    new ProcessorItemModded(true, "Apple", 2),
+                    new ProcessorItemModded(true, "Candy", 6),
+                    new ProcessorItemModded(true, "HealthCandy", 6),
+                    new ProcessorItemModded(true, "ManaCandy", 6),
+                    new ProcessorItemModded(true, "Taffy", 6),
+                    new ProcessorItemModded(true, "ChocolateBar", 6),
+                    new ProcessorItemModded(true, "MysteryCandy", 10),
+                    new ProcessorItemModded(true, "Lolipop", 6),
+                    new ProcessorItemModded(true, "MaskIggy", 40),
+                    new ProcessorItemModded(true, "MaskSvante", 40),
+                    new ProcessorItemModded(true, "MaskLeemyy", 40),
+                    new ProcessorItemModded(true, "MaskSchmo", 40),
+                    new ProcessorItemModded(true, "MaskLordCake", 40),
+                    new ProcessorItemModded(true, "MaskYuyutsu", 40),
+                    new ProcessorItemModded(true, "MaskVladimier", 40),
+                    new ProcessorItemModded(true, "MaskGradyee", 40),
+                    new ProcessorItemModded(true, "MaskBlaze", 40),
+                    new ProcessorItemModded(true, "MaskKachow", 40),
+                };
+            }
         }
 
         public void LoadRecipes(Mod mod)
         {
+
             // Add the present recipes
             foreach (var item in PresentItems)
             {
-                var recipe = new ModRecipe(mod);
+                ModRecipe recipe = new ModRecipe(mod);
                 recipe.AddIngredient(ItemID.Present, item.CraftingQuantityRequired);
                 recipe.AddTile(mod, "PresentProcessor");
                 recipe.SetResult(item.ItemID, item.ItemQuantity);
@@ -123,10 +162,26 @@ namespace PresentOpener
             // Add the goodie bag recipes
             foreach (var item in GoodieBagItems)
             {
-                var recipe = new ModRecipe(mod);
+                ModRecipe recipe = new ModRecipe(mod);
                 recipe.AddIngredient(ItemID.GoodieBag, item.CraftingQuantityRequired);
                 recipe.AddTile(mod, "GoodieProcessor");
                 recipe.SetResult(item.ItemID, item.ItemQuantity);
+                recipe.AddRecipe();
+            }
+            foreach (var item in ModdedItems)
+            {
+                ModRecipe recipe = new ModRecipe(mod);
+                if (goodieBagUsed == false)
+                {
+                    recipe.AddIngredient(ItemID.Present, item.CraftingQuantityRequired);
+                    recipe.AddTile(mod, "PresentProcessor");
+                }
+                if (goodieBagUsed == true)
+                {
+                    recipe.AddIngredient(ItemID.GoodieBag, item.CraftingQuantityRequired);
+                    recipe.AddTile(mod, "GoodieProcessor");
+                }
+                recipe.SetResult(mod.GetItem(item.ModItemID), item.ItemQuantity);
                 recipe.AddRecipe();
             }
 
@@ -146,31 +201,34 @@ namespace PresentOpener
             GoodieBagRecipe.AddTile(TileID.Loom);
             GoodieBagRecipe.SetResult(ItemID.GoodieBag);
             GoodieBagRecipe.AddRecipe();
-
-            //Modded content will go here. Contact me or commit if there's other modded items that spawn from presents and goodie bags. Current mods supported: Thorium, Spirit
-            Mod ThoriumLoaded = ModLoader.GetMod("ThoriumMod");
-            if (ThoriumLoaded != null)
-            {
-                ModRecipe thoriumrecipe = new ModRecipe(mod);
-                thoriumrecipe.AddIngredient(ItemID.Present, 15);
-                thoriumrecipe.AddTile(mod, "PresentProcessor");
-                thoriumrecipe.SetResult(ThoriumLoaded.ItemType("Mistletoe"));
-                thoriumrecipe.AddRecipe();
-            }
         }
     }
 
     public class ProcessorItem
     {
-        public int ItemID { get; }
-        public int CraftingQuantityRequired { get; }
-        public int ItemQuantity { get; }
+        public int ItemID { get; set; }
+        public int CraftingQuantityRequired { get; set; }
+        public int ItemQuantity { get; set; }
     
         public ProcessorItem(int itemID, int craftingQuantityRequired, int itemQuantity = 1)
         {
             ItemID = itemID;
             CraftingQuantityRequired = craftingQuantityRequired;
             ItemQuantity = itemQuantity;
+        }
+    }
+    public class ProcessorItemModded
+    {
+        public static bool GoodieBagIsUsed;
+        public string ModItemID { get; set; }
+        public int CraftingQuantityRequired { get; set; }
+        public int ItemQuantity { get; set; }
+        public ProcessorItemModded(bool goodieBagIsUsed, string modItemID, int craftingQuantityRequired, int itemQuantity = 1)
+        {
+            ModItemID = modItemID;
+            CraftingQuantityRequired = craftingQuantityRequired;
+            ItemQuantity = itemQuantity;
+            GoodieBagIsUsed = goodieBagIsUsed;
         }
     }
 }
