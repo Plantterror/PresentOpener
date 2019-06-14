@@ -7,12 +7,15 @@ namespace PresentOpener
 {
     public class PresentOpener : Mod 
     {
-        internal static RecipeBuilder Recipes = new RecipeBuilder();
+        internal static RecipeBuilder Recipes;
         public override void Unload()
         {
             Recipes = null;
         }
-
+        public override void Load()
+        {
+            Recipes = new RecipeBuilder();
+        }
         public override void AddRecipeGroups() //Recipe groups for Ice Queen and Pumpking weapon drops, respectively. Also Added an Evil Hardmode Crafting Ingredient group.
         {
             RecipeGroup group = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Ice Queen Drop", new int[] //Lang.misc is outdated, but it shouldn't affect mod building.

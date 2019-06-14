@@ -6,14 +6,14 @@ namespace PresentOpener
 {
     public class RecipeBuilder
     {
-        private bool goodieBagUsed;
+        
         internal static RecipeBuilder Instance;
         public List<ProcessorItem> PresentItems { get; set; }
         public List<ProcessorItem> GoodieBagItems { get; set; }
         public List<ProcessorItemModded> ModdedItems { get; set; }
         public RecipeBuilder()
         {
-            goodieBagUsed = ProcessorItemModded.GoodieBagIsUsed;
+            
             Instance = this;
             PresentItems = new List<ProcessorItem>()
             {
@@ -179,12 +179,12 @@ namespace PresentOpener
                     Mod othermods = ModLoader.GetMod(item.ModItemSource);
 
                     ModRecipe recipe = new ModRecipe(mod);
-                    if (goodieBagUsed == false)
+                    if (item.GoodieBagIsUsed == false)
                     {
                         recipe.AddIngredient(ItemID.Present, item.CraftingQuantityRequired);
                         recipe.AddTile(mod, "PresentProcessor");
                     }
-                    if (goodieBagUsed == true)
+                    if (item.GoodieBagIsUsed == true)
                     {
                         recipe.AddIngredient(ItemID.GoodieBag, item.CraftingQuantityRequired);
                         recipe.AddTile(mod, "GoodieProcessor");
@@ -228,7 +228,7 @@ namespace PresentOpener
     public class ProcessorItemModded
     {
         public string ModItemSource;
-        public static bool GoodieBagIsUsed;
+        public bool GoodieBagIsUsed;
         public string ModItemID { get; set; }
         public int CraftingQuantityRequired { get; set; }
         public int ItemQuantity { get; set; }
