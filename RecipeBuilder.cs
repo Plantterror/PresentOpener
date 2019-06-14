@@ -11,7 +11,6 @@ namespace PresentOpener
         public List<ProcessorItem> PresentItems { get; set; }
         public List<ProcessorItem> GoodieBagItems { get; set; }
         public List<ProcessorItemModded> ModdedItems { get; set; }
-
         public RecipeBuilder()
         {
             goodieBagUsed = ProcessorItemModded.GoodieBagIsUsed;
@@ -115,7 +114,7 @@ namespace PresentOpener
             {
                 ModdedItems = new List<ProcessorItemModded>()
                 {
-                    new ProcessorItemModded(false, "Mistletoe", 20)
+                    new ProcessorItemModded("ThoriumMod", false, "Mistletoe", 20)
                 };
             }
             Mod SpiritMod = ModLoader.GetMod("SpiritMod");
@@ -123,31 +122,32 @@ namespace PresentOpener
             {
                 ModdedItems = new List<ProcessorItemModded>()
                 {
-                    new ProcessorItemModded(true, "MaskHulk", 50),
-                    new ProcessorItemModded(true, "Apple", 2),
-                    new ProcessorItemModded(true, "Candy", 6),
-                    new ProcessorItemModded(true, "HealthCandy", 6),
-                    new ProcessorItemModded(true, "ManaCandy", 6),
-                    new ProcessorItemModded(true, "Taffy", 6),
-                    new ProcessorItemModded(true, "ChocolateBar", 6),
-                    new ProcessorItemModded(true, "MysteryCandy", 10),
-                    new ProcessorItemModded(true, "Lolipop", 6),
-                    new ProcessorItemModded(true, "MaskIggy", 40),
-                    new ProcessorItemModded(true, "MaskSvante", 40),
-                    new ProcessorItemModded(true, "MaskLeemyy", 40),
-                    new ProcessorItemModded(true, "MaskSchmo", 40),
-                    new ProcessorItemModded(true, "MaskLordCake", 40),
-                    new ProcessorItemModded(true, "MaskYuyutsu", 40),
-                    new ProcessorItemModded(true, "MaskVladimier", 40),
-                    new ProcessorItemModded(true, "MaskGradyee", 40),
-                    new ProcessorItemModded(true, "MaskBlaze", 40),
-                    new ProcessorItemModded(true, "MaskKachow", 40),
+                    new ProcessorItemModded("SpiritMod", true, "MaskHulk", 50),
+                    new ProcessorItemModded("SpiritMod", true, "Apple", 2),
+                    new ProcessorItemModded("SpiritMod", true, "Candy", 6),
+                    new ProcessorItemModded("SpiritMod", true, "HealthCandy", 6),
+                    new ProcessorItemModded("SpiritMod", true, "ManaCandy", 6),
+                    new ProcessorItemModded("SpiritMod", true, "Taffy", 6),
+                    new ProcessorItemModded("SpiritMod", true, "ChocolateBar", 6),
+                    new ProcessorItemModded("SpiritMod", true, "MysteryCandy", 10),
+                    new ProcessorItemModded("SpiritMod", true, "Lollipop", 6),
+                    new ProcessorItemModded("SpiritMod", true, "MaskIggy", 40),
+                    new ProcessorItemModded("SpiritMod", true, "MaskSvante", 40),
+                    new ProcessorItemModded("SpiritMod", true, "MaskLeemyy", 40),
+                    new ProcessorItemModded("SpiritMod", true, "MaskSchmo", 40),
+                    new ProcessorItemModded("SpiritMod", true, "MaskLordCake", 40),
+                    new ProcessorItemModded("SpiritMod", true, "MaskYuyutsu", 40),
+                    new ProcessorItemModded("SpiritMod", true, "MaskVladimier", 40),
+                    new ProcessorItemModded("SpiritMod", true, "MaskGraydee", 40),
+                    new ProcessorItemModded("SpiritMod", true, "MaskBlaze", 40),
+                    new ProcessorItemModded("SpiritMod", true, "MaskKachow", 40),
                 };
             }
         }
 
         public void LoadRecipes(Mod mod)
         {
+            PresentOpener.Recipes = this;
 
             // Add the present recipes
             foreach (var item in PresentItems)
@@ -168,23 +168,31 @@ namespace PresentOpener
                 recipe.SetResult(item.ItemID, item.ItemQuantity);
                 recipe.AddRecipe();
             }
-            foreach (var item in ModdedItems)
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                if (goodieBagUsed == false)
-                {
-                    recipe.AddIngredient(ItemID.Present, item.CraftingQuantityRequired);
-                    recipe.AddTile(mod, "PresentProcessor");
-                }
-                if (goodieBagUsed == true)
-                {
-                    recipe.AddIngredient(ItemID.GoodieBag, item.CraftingQuantityRequired);
-                    recipe.AddTile(mod, "GoodieProcessor");
-                }
-                recipe.SetResult(mod.GetItem(item.ModItemID), item.ItemQuantity);
-                recipe.AddRecipe();
-            }
 
+            Mod ThoriumMod = ModLoader.GetMod("ThoriumMod");
+            Mod SpiritMod = ModLoader.GetMod("SpiritMod");
+
+            if (ThoriumMod != null || SpiritMod != null) //Since mods are or are not loaded, I have to make sure any of the selected mods are loaded before continuing this code.
+            {
+                foreach (var item in ModdedItems)
+                {
+                    Mod othermods = ModLoader.GetMod(item.ModItemSource);
+
+                    ModRecipe recipe = new ModRecipe(mod);
+                    if (goodieBagUsed == false)
+                    {
+                        recipe.AddIngredient(ItemID.Present, item.CraftingQuantityRequired);
+                        recipe.AddTile(mod, "PresentProcessor");
+                    }
+                    if (goodieBagUsed == true)
+                    {
+                        recipe.AddIngredient(ItemID.GoodieBag, item.CraftingQuantityRequired);
+                        recipe.AddTile(mod, "GoodieProcessor");
+                    }
+                    recipe.SetResult(othermods, item.ModItemID, item.ItemQuantity);
+                    recipe.AddRecipe();
+                }
+            }
             //Making Presents and Goodie Bags
             ModRecipe PresentRecipe = new ModRecipe(mod);
             PresentRecipe.AddIngredient(ItemID.Silk, 5);
@@ -219,12 +227,14 @@ namespace PresentOpener
     }
     public class ProcessorItemModded
     {
+        public string ModItemSource;
         public static bool GoodieBagIsUsed;
         public string ModItemID { get; set; }
         public int CraftingQuantityRequired { get; set; }
         public int ItemQuantity { get; set; }
-        public ProcessorItemModded(bool goodieBagIsUsed, string modItemID, int craftingQuantityRequired, int itemQuantity = 1)
+        public ProcessorItemModded(string modItemSource, bool goodieBagIsUsed, string modItemID, int craftingQuantityRequired, int itemQuantity = 1)
         {
+            ModItemSource = modItemSource;
             ModItemID = modItemID;
             CraftingQuantityRequired = craftingQuantityRequired;
             ItemQuantity = itemQuantity;
