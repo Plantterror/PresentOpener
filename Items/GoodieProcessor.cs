@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace PresentOpener.Items
@@ -35,9 +30,10 @@ namespace PresentOpener.Items
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.GrayBrick, 20);
-            recipe.AddIngredient(ItemID.Autohammer);
-            recipe.AddRecipeGroup("PumpkingDrop"); //PumpkingDrop is a Recipe Group for the Pumpking Weapon drops.
+            recipe.AddIngredient(ItemID.HallowedBar, 6);
+            recipe.AddIngredient(ItemID.GoodieBag, 5);
+            recipe.AddIngredient(ItemID.SoulofFright);
+            recipe.AddIngredient(ItemID.AncientBattleArmorMaterial);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();
