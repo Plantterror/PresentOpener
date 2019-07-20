@@ -1,11 +1,12 @@
-﻿v2.0.1.3 - Minor fixes, code cleanup. 
+﻿v2.1 - 0.11 code changes, New icon, Processor tweaking, ModConfigs, Added and Finalized recipes.
 
 Unlike real life, this mod lets you choose what you get from your presents!
+You are able to craft both Processors with the remains of the Mechanical Bosses. Alternatively, you can fight the Frost Moon and Pumpkin moon to have a chance to get each.
 
-Multiple Presents are required at a Present Manager for the Christmas recipes to work. You can craft one with an Ice Queen Drop, or get it from Everscream.
-Multiple Goodie Bags are required at a Goodie Bag Manager for the Halloween recipes to work. You can craft one with a Pumpking Drop, or get it from Mourning Wood.
+Now with a Mod Config! You are able to adjust the chances of getting what you want out of your present. 
+NOTE: Due to some wonky code, I am not able to actually have decimal multipliers. I'll get around to fixing it sometime.
 
-Credit goes to Maker of Scratchock for making the icon and the station sprites.
+Credit goes to Maker of Scratchock for making the processor sprites.
 
 Changelog (Not including minor releases):
 1.0 - Mod Released
@@ -14,3 +15,4 @@ Changelog (Not including minor releases):
 1.2 - Added Spirit support for all the items in the Goodie Bags.
 2.0 - Revamped crafting stations. Doubled the cost of all recipes for balance.
 2.0.1 - Added a recipe to make presents and goodie bags.
+2.1 - 0.11 code changes, New icon, Processor tweaking, ModConfigs, Added and Finalized recipes.

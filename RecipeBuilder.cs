@@ -8,9 +8,9 @@ namespace PresentOpener
     {
         
         internal static RecipeBuilder Instance;
-        public List<ProcessorItem> PresentItems { get; set; }
-        public List<ProcessorItem> GoodieBagItems { get; set; }
-        public List<ProcessorItemModded> ModdedItems { get; set; }
+        public List<ProcessorItem> PresentItems { get; }
+        public List<ProcessorItem> GoodieBagItems { get; }
+        public List<ProcessorItemModded> ModdedItems { get; }
         public RecipeBuilder()
         {
             
@@ -19,13 +19,16 @@ namespace PresentOpener
             {
                 new ProcessorItem(ItemID.GreenCandyCaneBlock, 2, 50),
                 new ProcessorItem(ItemID.CandyCaneBlock, 2, 50),
+                new ProcessorItem(ItemID.PineTreeBlock, 2, 50),
                 new ProcessorItem(ItemID.Coal, 2),
                 new ProcessorItem(ItemID.RedRyder, 40),
                 new ProcessorItem(ItemID.DogWhistle, 40),
                 new ProcessorItem(ItemID.CandyCaneHook, 20),
                 new ProcessorItem(ItemID.CandyCaneSword, 20),
                 new ProcessorItem(ItemID.CnadyCanePickaxe, 20),
+                new ProcessorItem(ItemID.FruitcakeChakram, 20),
                 new ProcessorItem(ItemID.Toolbox, 20),
+                new ProcessorItem(ItemID.HandWarmer, 20),
                 new ProcessorItem(ItemID.ReindeerAntlers, 12),
                 new ProcessorItem(ItemID.Holly, 10),
                 new ProcessorItem(ItemID.SnowHat, 12),
@@ -34,7 +37,6 @@ namespace PresentOpener
                 new ProcessorItem(ItemID.SugarCookie, 8, 2),
                 new ProcessorItem(ItemID.GingerbreadCookie, 8, 2),
                 new ProcessorItem(ItemID.ChristmasPudding, 8, 2),
-                new ProcessorItem(ItemID.PineTreeBlock, 2, 50),
                 new ProcessorItem(ItemID.StarAnise, 4, 30),
                 new ProcessorItem(ItemID.ParkaCoat, 4),
                 new ProcessorItem(ItemID.ParkaHood, 4),
@@ -214,9 +216,9 @@ namespace PresentOpener
 
     public class ProcessorItem
     {
-        public int ItemID { get; set; }
-        public int CraftingQuantityRequired { get; set; }
-        public int ItemQuantity { get; set; }
+        public int ItemID { get; }
+        public int CraftingQuantityRequired { get; }
+        public int ItemQuantity { get; }
     
         public ProcessorItem(int itemID, int craftingQuantityRequired, int itemQuantity = 1)
         {
@@ -229,9 +231,9 @@ namespace PresentOpener
     {
         public string ModItemSource;
         public bool GoodieBagIsUsed;
-        public string ModItemID { get; set; }
-        public int CraftingQuantityRequired { get; set; }
-        public int ItemQuantity { get; set; }
+        public string ModItemID { get; }
+        public int CraftingQuantityRequired { get; }
+        public int ItemQuantity { get; }
         public ProcessorItemModded(string modItemSource, bool goodieBagIsUsed, string modItemID, int craftingQuantityRequired, int itemQuantity = 1)
         {
             ModItemSource = modItemSource;
