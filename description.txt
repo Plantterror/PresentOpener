@@ -1,10 +1,9 @@
-﻿v2.1 - 0.11 code changes, New icon, Processor tweaking, ModConfigs, Added and Finalized recipes.
+﻿v2.1.0.1 - Fixed the config (finally) so that you can actually use decimals. Also (hopefully) fixed the present not giving you anything.
 
 Unlike real life, this mod lets you choose what you get from your presents!
 You are able to craft both Processors with the remains of the Mechanical Bosses. Alternatively, you can fight the Frost Moon and Pumpkin moon to have a chance to get each.
 
 Now with a Mod Config! You are able to adjust the chances of getting what you want out of your present. 
-NOTE: Due to some wonky code, I am not able to actually have decimal multipliers. I'll get around to fixing it sometime.
 
 Credit goes to Maker of Scratchock for making the processor sprites.
 
