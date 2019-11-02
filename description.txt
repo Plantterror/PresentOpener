@@ -1,5 +1,8 @@
-﻿v2.1.0.1 - Adjusted a lot of the config. You can now scale with decimals, everything is neat into one config, and you can also disable the adjustment rates.
-Also fixed a bug where the mod developer would go on hiatus for 3 months with a simple bug to fix.
+﻿v2.1.0.2
+You can adjust the config without reloading.
+You can disable the config entirely and move back to the vanilla drop chances.
+You can no longer adjust the config if you are not the host of a server.
+Added an unobtainable item cause I felt like it
 
 Unlike real life, this mod lets you choose what you get from your presents!
 You are able to craft both Processors with the remains of the Mechanical Bosses. Alternatively, you can fight the Frost Moon and Pumpkin moon to have a chance to get each.

@@ -18,7 +18,7 @@ namespace PresentOpener
 		}
 		public override void AddRecipeGroups() //Recipe groups for Ice Queen and Pumpking weapon drops, respectively. Also Added an Evil Hardmode Crafting Ingredient group.
 		{
-			RecipeGroup group = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + "Hardmode Evil Material", new int[]
+			RecipeGroup group = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Evil Hardmode Material", new int[]
 			{
 					ItemID.CursedFlame,
 					ItemID.Ichor
