@@ -30,9 +30,10 @@ namespace PresentOpener.Items
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.GrayBrick, 20);
-            recipe.AddIngredient(ItemID.Autohammer);
-            recipe.AddRecipeGroup("IceQueenDrop"); //IceQueenDrop is our recipe group for Ice Queen weapon drops.
+            recipe.AddIngredient(ItemID.HallowedBar, 6);
+            recipe.AddIngredient(ItemID.Present, 5);
+            recipe.AddIngredient(ItemID.SoulofMight);
+            recipe.AddIngredient(ItemID.FrostCore);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();
