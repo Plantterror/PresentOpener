@@ -17,7 +17,7 @@ namespace PresentOpener
 						if (!config.presentmenu.DisablePresentConfig)
 						{
 
-							WeightedRandom<short> presentrandom = new WeightedRandom<short>(); //This is a form of randomness made by Terraria, useful for avoiding long If/Else chains like I have previously done.
+							WeightedRandom<int> presentrandom = new WeightedRandom<int>(); //This is a form of randomness made by Terraria, useful for avoiding long If/Else chains like I have previously done.
 
 							if (Main.hardMode)
 							{
@@ -47,7 +47,11 @@ namespace PresentOpener
 							presentrandom.Add(ItemID.PineTreeBlock, 1f / 6f * config.presentmenu.BlockScale);
 							presentrandom.Add(ItemID.CandyCaneBlock, 1f / 6f * config.presentmenu.BlockScale);
 							presentrandom.Add(ItemID.GreenCandyCaneBlock, 1f / 6f * config.presentmenu.BlockScale);
-
+							Mod ThoriumMod = ModLoader.GetMod("ThoriumMod");
+							if (ThoriumMod != null && config.moddedmenu.DisableModdedConfigs == false)
+							{
+								presentrandom.Add(ThoriumMod.ItemType("Mistletoe"), 1f / 10f * config.moddedmenu.ThoriumMistleScale);
+							}
 
 							if (presentrandom != null)
 							{
@@ -115,7 +119,7 @@ namespace PresentOpener
 
 						if (!config.goodiemenu.DisableGoodieConfig)
 						{
-							WeightedRandom<short> goodierandom = new WeightedRandom<short>();
+							WeightedRandom<int> goodierandom = new WeightedRandom<int>();
 
 							goodierandom.Add(ItemID.UnluckyYarn, 19f / 150f * config.goodiemenu.GoodieRareItemScale);
 							goodierandom.Add(ItemID.BatHook, 19f / 150f * config.goodiemenu.GoodieRareItemScale);
@@ -143,6 +147,40 @@ namespace PresentOpener
 							goodierandom.Add(ItemID.PixieShirt, 1f * config.goodiemenu.CostumeScale);
 							goodierandom.Add(ItemID.BrideofFrankensteinMask, 1f * config.goodiemenu.CostumeScale);
 							goodierandom.Add(ItemID.GhostMask, 1f * config.goodiemenu.CostumeScale);
+
+							Mod SpiritMod = ModLoader.GetMod("SpiritMod");
+							if (SpiritMod != null && config.moddedmenu.DisableModdedConfigs == false)
+							{
+								WeightedRandom<int> MaskRandom = new WeightedRandom<int>();
+								MaskRandom.Add(SpiritMod.ItemType("MaskHulk"));
+								MaskRandom.Add(SpiritMod.ItemType("MaskIggy"));
+								MaskRandom.Add(SpiritMod.ItemType("MaskSvante"));
+								MaskRandom.Add(SpiritMod.ItemType("MaskLeemyy"));
+								MaskRandom.Add(SpiritMod.ItemType("MaskSchmo"));
+								MaskRandom.Add(SpiritMod.ItemType("MaskLordCake"));
+								MaskRandom.Add(SpiritMod.ItemType("MaskYuyutsu"));
+								MaskRandom.Add(SpiritMod.ItemType("MaskVladimier"));
+								MaskRandom.Add(SpiritMod.ItemType("MaskGraydee"));
+								MaskRandom.Add(SpiritMod.ItemType("MaskBlaze"));
+								MaskRandom.Add(SpiritMod.ItemType("MaskKachow"));
+								if (Main.rand.Next(25) <= 5f * config.moddedmenu.SpiritDevMaskScale)
+								{
+									player.QuickSpawnItem(MaskRandom);
+								}
+
+								WeightedRandom<int> candyrandom = new WeightedRandom<int>();
+								candyrandom.Add(SpiritMod.ItemType("Taffy"), 1f / 8f * config.moddedmenu.SpiritCandyScale);
+								candyrandom.Add(SpiritMod.ItemType("Candy"), 7f / 25f * config.moddedmenu.SpiritCandyScale);
+								candyrandom.Add(SpiritMod.ItemType("ChocolateBar"), 12f / 25f * config.moddedmenu.SpiritCandyScale);
+								candyrandom.Add(SpiritMod.ItemType("HealthCandy"), 29f / 50f * config.moddedmenu.SpiritCandyScale);
+								candyrandom.Add(SpiritMod.ItemType("ManaCandy"), 17f / 25f * config.moddedmenu.SpiritCandyScale);
+								candyrandom.Add(SpiritMod.ItemType("Lollipop"), 39f / 50f * config.moddedmenu.SpiritCandyScale);
+								candyrandom.Add(SpiritMod.ItemType("Apple"), 100f / 83f * config.moddedmenu.AppleScale);
+								candyrandom.Add(SpiritMod.ItemType("MysteryCandy"), 25f / 24f * config.moddedmenu.MysteryCandyScale);
+								candyrandom.Add(SpiritMod.ItemType("GoldCandy"), 3f / 100f);
+								player.QuickSpawnItem(candyrandom);
+							}
+
 							if (goodierandom != null)
 							{
 								if (goodierandom == ItemID.RottenEgg)

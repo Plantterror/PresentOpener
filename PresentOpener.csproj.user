@@ -9,5 +9,6 @@
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
     <ActiveDebugProfile>Terraria</ActiveDebugProfile>
+    <ShowAllFiles>true</ShowAllFiles>
   </PropertyGroup>
 </Project>

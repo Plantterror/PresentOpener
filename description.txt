@@ -1,11 +1,11 @@
-﻿v2.1.0.2
-You can adjust the config without reloading.
-You can disable the config entirely and move back to the vanilla drop chances.
-You can no longer adjust the config if you are not the host of a server.
-Added an unobtainable item cause I felt like it
+﻿v2.1.1
+- Modded items can be found again in Presents if you have the configs enabled.
+- There is a scale for these items now, it's in their own config folder. (Spirit Mod Masks/Candies, Thorium Mod Mistletoe)
+- Fixed "Reset Defaults" button defaulting each scale to 0.
+- UPdAtEd lOCalIzAtIOn fIlES
 
 Unlike real life, this mod lets you choose what you get from your presents!
-You are able to craft both Processors with the remains of the Mechanical Bosses. Alternatively, you can fight the Frost Moon and Pumpkin moon to have a chance to get each.
+You are able to craft both Processors with the remains of the Mechanical Bosses and a Frost Core/Forbidden Fragment. Alternatively, you can fight the Frost Moon and Pumpkin moon to have a chance to get each.
 
 Now with a Mod Config! You are able to adjust the chances of getting what you want out of your present.
 
@@ -19,3 +19,4 @@ Changelog (Not including minor releases):
 2.0 - Revamped crafting stations. Doubled the cost of all recipes for balance.
 2.0.1 - Added a recipe to make presents and goodie bags.
 2.1 - 0.11 code changes, New icon, Processor tweaking, ModConfigs, Added and Finalized recipes.
+2.1.1 - Config support for Modded items inside the bags, and fixed these items not dropping.

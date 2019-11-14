@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
 namespace PresentOpener.Items
 {
-	public class Omelette : ModItem
+	public class Omelette : ModItem //This is an unobtainable item.
 	{
 		public override void SetDefaults()
 		{
@@ -30,7 +25,7 @@ namespace PresentOpener.Items
 
 		public override void SetStaticDefaults()
 		{
-			Tooltip.SetDefault("I ordered a sandwich... Why the hell did I get this?");
+			Tooltip.SetDefault("But I ordered a sandwich... Why the hell did I get this?");
 		}
 	}
 }
