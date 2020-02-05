@@ -16,6 +16,7 @@ namespace PresentOpener
 						PresentOpenerConfig config = ModContent.GetInstance<PresentOpenerConfig>();
 						if (!config.presentmenu.DisablePresentConfig)
 						{
+
 							WeightedRandom<int> presentrandom = new WeightedRandom<int>(); //This is a form of randomness made by Terraria, useful for avoiding long If/Else chains like I have previously done.
 
 							if (Main.hardMode)
@@ -54,46 +55,55 @@ namespace PresentOpener
 
 							if (presentrandom != null)
 							{
-								int spawnpresentitem = (int)presentrandom;
-								switch (spawnpresentitem)
+
+								if (presentrandom == ItemID.RedRyder)
 								{
-									case ItemID.Musket:
-										player.QuickSpawnItem(spawnpresentitem);
-										player.QuickSpawnItem(ItemID.MusketBall, Main.rand.Next(30, 61));
-										break;
-									case ItemID.MrsClauseHat:
-										player.QuickSpawnItem(ItemID.MrsClauseHat);
-										player.QuickSpawnItem(ItemID.MrsClauseShirt);
-										player.QuickSpawnItem(ItemID.MrsClauseHeels);
-										break;
-									case ItemID.ParkaHood:
-										player.QuickSpawnItem(ItemID.ParkaHood);
-										player.QuickSpawnItem(ItemID.ParkaCoat);
-										player.QuickSpawnItem(ItemID.ParkaPants);
-										break;
-									case ItemID.TreeMask:
-										player.QuickSpawnItem(ItemID.TreeMask);
-										player.QuickSpawnItem(ItemID.TreeShirt);
-										player.QuickSpawnItem(ItemID.TreeTrunks);
-										break;
-									case ItemID.Eggnog:
-										player.QuickSpawnItem(ItemID.Eggnog, Main.rand.Next(1, 4));
-										break;
-									case ItemID.StarAnise:
-										player.QuickSpawnItem(ItemID.StarAnise, Main.rand.Next(20, 41));
-										break;
-									case ItemID.PineTreeBlock | ItemID.CandyCaneBlock | ItemID.GreenCandyCaneBlock:
-										player.QuickSpawnItem(ItemID.PineTreeBlock, Main.rand.Next(20, 50));
-										break;
-									default:
-										player.QuickSpawnItem(spawnpresentitem); //Legit I've tried everything but somehow the above items can fail the case and only give you the 1 item. It seems to happen with a 1/5 chance with this code.
-										break;
+									player.QuickSpawnItem(presentrandom);
+									player.QuickSpawnItem(ItemID.MusketBall, Main.rand.Next(30, 61));
+								}
+								else if (presentrandom == ItemID.MrsClauseHat)
+								{
+									player.QuickSpawnItem(ItemID.MrsClauseHat);
+									player.QuickSpawnItem(ItemID.MrsClauseShirt);
+									player.QuickSpawnItem(ItemID.MrsClauseHeels);
+								}
+								else if (presentrandom == ItemID.ParkaHood)
+								{
+									player.QuickSpawnItem(ItemID.ParkaHood);
+									player.QuickSpawnItem(ItemID.ParkaCoat);
+									player.QuickSpawnItem(ItemID.ParkaPants);
+								}
+								else if (presentrandom == ItemID.TreeMask)
+								{
+									player.QuickSpawnItem(ItemID.TreeMask);
+									player.QuickSpawnItem(ItemID.TreeShirt);
+									player.QuickSpawnItem(ItemID.TreeTrunks);
+								}
+								else if (presentrandom == ItemID.Eggnog)
+								{
+									player.QuickSpawnItem(ItemID.Eggnog, Main.rand.Next(1, 4));
+								}
+								else if (presentrandom == ItemID.StarAnise)
+								{
+									player.QuickSpawnItem(ItemID.StarAnise, Main.rand.Next(20, 41));
+								}
+								else if (presentrandom == ItemID.PineTreeBlock)
+								{
+									player.QuickSpawnItem(ItemID.PineTreeBlock, Main.rand.Next(20, 50));
+								}
+								else if (presentrandom == ItemID.CandyCaneBlock)
+								{
+									player.QuickSpawnItem(ItemID.CandyCaneBlock, Main.rand.Next(20, 50));
+								}
+								else if (presentrandom == ItemID.GreenCandyCaneBlock)
+								{
+									player.QuickSpawnItem(ItemID.GreenCandyCaneBlock, Main.rand.Next(20, 50));
+								}
+								else
+								{
+									player.QuickSpawnItem(presentrandom);
 								}
 								presentrandom.Clear();
-							}
-							else
-							{
-								mod.Logger.Warn("If you're seeing this message, then I fucked something up with spawning the item coming from the present.");
 							}
 							return false;
 						}
@@ -102,6 +112,7 @@ namespace PresentOpener
 							return true;
 						}
 					}
+
 				case "goodieBag":
 					{
 						PresentOpenerConfig config = ModContent.GetInstance<PresentOpenerConfig>();
@@ -141,8 +152,6 @@ namespace PresentOpener
 							if (SpiritMod != null && config.moddedmenu.DisableModdedConfigs == false)
 							{
 								WeightedRandom<int> MaskRandom = new WeightedRandom<int>();
-								Main.NewText(MaskRandom);
-
 								MaskRandom.Add(SpiritMod.ItemType("MaskHulk"));
 								MaskRandom.Add(SpiritMod.ItemType("MaskIggy"));
 								MaskRandom.Add(SpiritMod.ItemType("MaskSvante"));
@@ -160,8 +169,6 @@ namespace PresentOpener
 								}
 
 								WeightedRandom<int> candyrandom = new WeightedRandom<int>();
-								Main.NewText(candyrandom);
-
 								candyrandom.Add(SpiritMod.ItemType("Taffy"), 1f / 8f * config.moddedmenu.SpiritCandyScale);
 								candyrandom.Add(SpiritMod.ItemType("Candy"), 7f / 25f * config.moddedmenu.SpiritCandyScale);
 								candyrandom.Add(SpiritMod.ItemType("ChocolateBar"), 12f / 25f * config.moddedmenu.SpiritCandyScale);
@@ -176,105 +183,117 @@ namespace PresentOpener
 
 							if (goodierandom != null)
 							{
-								int spawngoodieitem = (int)goodierandom;
-								switch (spawngoodieitem)
+								if (goodierandom == ItemID.RottenEgg)
 								{
-									case ItemID.RottenEgg:
-										player.QuickSpawnItem(spawngoodieitem, Main.rand.Next(10, 41));
-										break;
-									case ItemID.CatMask:
-										player.QuickSpawnItem(ItemID.CatMask);
-										player.QuickSpawnItem(ItemID.CatShirt);
-										player.QuickSpawnItem(ItemID.CatPants);
-										break;
-									case ItemID.CreeperMask:
-										player.QuickSpawnItem(ItemID.CreeperMask);
-										player.QuickSpawnItem(ItemID.CreeperShirt);
-										player.QuickSpawnItem(ItemID.CreeperPants);
-										break;
-									case ItemID.PumpkinMask:
-										player.QuickSpawnItem(ItemID.PumpkinMask);
-										player.QuickSpawnItem(ItemID.PumpkinShirt);
-										player.QuickSpawnItem(ItemID.PumpkinPants);
-										break;
-									case ItemID.SpaceCreatureMask:
-										player.QuickSpawnItem(ItemID.SpaceCreatureMask);
-										player.QuickSpawnItem(ItemID.SpaceCreatureShirt);
-										player.QuickSpawnItem(ItemID.SpaceCreaturePants);
-										break;
-									case ItemID.KarateTortoiseMask:
-										player.QuickSpawnItem(ItemID.KarateTortoiseMask);
-										player.QuickSpawnItem(ItemID.KarateTortoiseShirt);
-										player.QuickSpawnItem(ItemID.KarateTortoisePants);
-										break;
-									case ItemID.FoxMask:
-										player.QuickSpawnItem(ItemID.FoxMask);
-										player.QuickSpawnItem(ItemID.FoxShirt);
-										player.QuickSpawnItem(ItemID.FoxPants);
-										break;
-									case ItemID.WitchHat:
-										player.QuickSpawnItem(ItemID.WitchHat);
-										player.QuickSpawnItem(ItemID.WitchDress);
-										player.QuickSpawnItem(ItemID.WitchBoots);
-										break;
-									case ItemID.VampireMask:
-										player.QuickSpawnItem(ItemID.VampireMask);
-										player.QuickSpawnItem(ItemID.VampireShirt);
-										player.QuickSpawnItem(ItemID.VampirePants);
-										break;
-									case ItemID.LeprechaunHat:
-										player.QuickSpawnItem(ItemID.LeprechaunHat);
-										player.QuickSpawnItem(ItemID.LeprechaunShirt);
-										player.QuickSpawnItem(ItemID.LeprechaunPants);
-										break;
-									case ItemID.RobotMask:
-										player.QuickSpawnItem(ItemID.RobotMask);
-										player.QuickSpawnItem(ItemID.RobotShirt);
-										player.QuickSpawnItem(ItemID.RobotPants);
-										break;
-									case ItemID.PrincessHat:
-										player.QuickSpawnItem(ItemID.PrincessHat);
-										player.QuickSpawnItem(ItemID.PrincessDressNew);
-										break;
-									case ItemID.TreasureHunterShirt:
-										player.QuickSpawnItem(ItemID.TreasureHunterShirt);
-										player.QuickSpawnItem(ItemID.TreasureHunterPants);
-										break;
-									case ItemID.WolfMask:
-										player.QuickSpawnItem(ItemID.WolfMask);
-										player.QuickSpawnItem(ItemID.WolfShirt);
-										player.QuickSpawnItem(ItemID.WolfPants);
-										break;
-									case ItemID.UnicornMask:
-										player.QuickSpawnItem(ItemID.UnicornMask);
-										player.QuickSpawnItem(ItemID.UnicornShirt);
-										player.QuickSpawnItem(ItemID.UnicornPants);
-										break;
-									case ItemID.ReaperHood:
-										player.QuickSpawnItem(ItemID.ReaperHood);
-										player.QuickSpawnItem(ItemID.ReaperRobe);
-										break;
-									case ItemID.PixieShirt:
-										player.QuickSpawnItem(ItemID.PixieShirt);
-										player.QuickSpawnItem(ItemID.PixiePants);
-										break;
-									case ItemID.BrideofFrankensteinMask:
-										player.QuickSpawnItem(ItemID.BrideofFrankensteinMask);
-										player.QuickSpawnItem(ItemID.BrideofFrankensteinDress);
-										break;
-									case ItemID.GhostMask:
-										player.QuickSpawnItem(ItemID.GhostMask);
-										player.QuickSpawnItem(ItemID.GhostShirt);
-										break;
-									default:
-										player.QuickSpawnItem(spawngoodieitem);
-										break;
+									player.QuickSpawnItem(goodierandom, Main.rand.Next(10, 41));
+								}
+								else if (goodierandom == ItemID.CatMask)
+								{
+									player.QuickSpawnItem(ItemID.CatMask);
+									player.QuickSpawnItem(ItemID.CatShirt);
+									player.QuickSpawnItem(ItemID.CatPants);
+								}
+								else if (goodierandom == ItemID.CreeperMask)
+								{
+									player.QuickSpawnItem(ItemID.CreeperMask);
+									player.QuickSpawnItem(ItemID.CreeperShirt);
+									player.QuickSpawnItem(ItemID.CreeperPants);
+								}
+								else if (goodierandom == ItemID.PumpkinMask)
+								{
+									player.QuickSpawnItem(ItemID.PumpkinMask);
+									player.QuickSpawnItem(ItemID.PumpkinShirt);
+									player.QuickSpawnItem(ItemID.PumpkinPants);
+								}
+								else if (goodierandom == ItemID.SpaceCreatureMask)
+								{
+									player.QuickSpawnItem(ItemID.SpaceCreatureMask);
+									player.QuickSpawnItem(ItemID.SpaceCreatureShirt);
+									player.QuickSpawnItem(ItemID.SpaceCreaturePants);
+								}
+								else if (goodierandom == ItemID.KarateTortoiseMask)
+								{
+									player.QuickSpawnItem(ItemID.KarateTortoiseMask);
+									player.QuickSpawnItem(ItemID.KarateTortoiseShirt);
+									player.QuickSpawnItem(ItemID.KarateTortoisePants);
+								}
+								else if (goodierandom == ItemID.FoxMask)
+								{
+									player.QuickSpawnItem(ItemID.FoxMask);
+									player.QuickSpawnItem(ItemID.FoxShirt);
+									player.QuickSpawnItem(ItemID.FoxPants);
+								}
+								else if (goodierandom == ItemID.WitchHat)
+								{
+									player.QuickSpawnItem(ItemID.WitchHat);
+									player.QuickSpawnItem(ItemID.WitchDress);
+									player.QuickSpawnItem(ItemID.WitchBoots);
+								}
+								else if (goodierandom == ItemID.VampireMask)
+								{
+									player.QuickSpawnItem(ItemID.VampireMask);
+									player.QuickSpawnItem(ItemID.VampireShirt);
+									player.QuickSpawnItem(ItemID.VampirePants);
+								}
+								else if (goodierandom == ItemID.LeprechaunHat)
+								{
+									player.QuickSpawnItem(ItemID.LeprechaunHat);
+									player.QuickSpawnItem(ItemID.LeprechaunShirt);
+									player.QuickSpawnItem(ItemID.LeprechaunPants);
+								}
+								else if (goodierandom == ItemID.RobotMask)
+								{
+									player.QuickSpawnItem(ItemID.RobotMask);
+									player.QuickSpawnItem(ItemID.RobotShirt);
+									player.QuickSpawnItem(ItemID.RobotPants);
+								}
+								else if (goodierandom == ItemID.PrincessHat)
+								{
+									player.QuickSpawnItem(ItemID.PrincessHat);
+									player.QuickSpawnItem(ItemID.PrincessDressNew);
+								}
+								else if (goodierandom == ItemID.TreasureHunterShirt)
+								{
+									player.QuickSpawnItem(ItemID.TreasureHunterShirt);
+									player.QuickSpawnItem(ItemID.TreasureHunterPants);
+								}
+								else if (goodierandom == ItemID.WolfMask)
+								{
+									player.QuickSpawnItem(ItemID.WolfMask);
+									player.QuickSpawnItem(ItemID.WolfShirt);
+									player.QuickSpawnItem(ItemID.WolfPants);
+								}
+								else if (goodierandom == ItemID.UnicornMask)
+								{
+									player.QuickSpawnItem(ItemID.UnicornMask);
+									player.QuickSpawnItem(ItemID.UnicornShirt);
+									player.QuickSpawnItem(ItemID.UnicornPants);
+								}
+								else if (goodierandom == ItemID.ReaperHood)
+								{
+									player.QuickSpawnItem(ItemID.ReaperHood);
+									player.QuickSpawnItem(ItemID.ReaperRobe);
+								}
+								else if (goodierandom == ItemID.PixieShirt)
+								{
+									player.QuickSpawnItem(ItemID.PixieShirt);
+									player.QuickSpawnItem(ItemID.PixiePants);
+								}
+								else if (goodierandom == ItemID.BrideofFrankensteinMask)
+								{
+									player.QuickSpawnItem(ItemID.BrideofFrankensteinMask);
+									player.QuickSpawnItem(ItemID.BrideofFrankensteinDress);
+								}
+								else if (goodierandom == ItemID.GhostMask)
+								{
+									player.QuickSpawnItem(ItemID.GhostMask);
+									player.QuickSpawnItem(ItemID.GhostShirt);
+								}
+								else
+								{
+									player.QuickSpawnItem(goodierandom);
 								}
 								goodierandom.Clear();
-							}
-							else
-							{
-								mod.Logger.Warn("If you're seeing this message, then I fucked something up with spawning the item coming from the goodie bag.");
 							}
 							return false;
 						}
@@ -283,6 +302,7 @@ namespace PresentOpener
 							return true;
 						}
 					}
+
 				default:
 					return true;
 			}

@@ -11,11 +11,6 @@
     <Exec Command="&quot;$(tMLBuildServerPath)&quot; -build $(ProjectDir) -eac $(TargetPath) -define $(DefineConstants) -unsafe $(AllowUnsafeBlocks)" />
   </Target>
   <ItemGroup>
-    <Compile Remove="Properties\bin\**" />
-    <EmbeddedResource Remove="Properties\bin\**" />
-    <None Remove="Properties\bin\**" />
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="Terraria">
       <HintPath>D:\Steam\steamapps\common\Terraria\Terraria.exe</HintPath>
     </Reference>

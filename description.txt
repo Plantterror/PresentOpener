@@ -1,13 +1,15 @@
-﻿v2.1.2
-- Removed the Processors and recipes.
-- Presents and Goodie Bags can drop outside of their respective season at a 3 times reduced chance.
-- Minor Improvements to the opening system.
-- Config scales are no longer flimsy and should only have multipliers to the first decimal place.
-- New icon!
+﻿v2.1.1
+- Modded items can be found again in Presents if you have the configs enabled.
+- There is a scale for these items now, it's in their own config folder. (Spirit Mod Masks/Candies, Thorium Mod Mistletoe)
+- Fixed "Reset Defaults" button defaulting each scale to 0.
+- UPdAtEd lOCalIzAtIOn fIlES
 
-Unlike real life, this mod will influence what you get out of your present with minimal effort! just tweak the scales through the ModConfig setup.
+Unlike real life, this mod lets you choose what you get from your presents!
+You are able to craft both Processors with the remains of the Mechanical Bosses and a Frost Core/Forbidden Fragment. Alternatively, you can fight the Frost Moon and Pumpkin moon to have a chance to get each.
 
-Credit to TheRedStoneBro for the improved icon!
+Now with a Mod Config! You are able to adjust the chances of getting what you want out of your present.
+
+Credit goes to Maker of Scratchock for making the processor sprites, and Panini for helping with condensing the recipes.
 
 Changelog (Not including minor releases):
 1.0 - Mod Released
@@ -18,4 +20,3 @@ Changelog (Not including minor releases):
 2.0.1 - Added a recipe to make presents and goodie bags.
 2.1 - 0.11 code changes, New icon, Processor tweaking, ModConfigs, Added and Finalized recipes.
 2.1.1 - Config support for Modded items inside the bags, and fixed these items not dropping.
-2.1.2 - Current release.

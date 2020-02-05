@@ -4,7 +4,7 @@ using Terraria.ID;
 
 namespace PresentOpener.Items
 {
-	public class Omelette : ModItem //Just a random item I wanted to add. Purely unobtainable without cheats.
+	public class Omelette : ModItem //This is an unobtainable item.
 	{
 		public override void SetDefaults()
 		{
