@@ -56,52 +56,45 @@ namespace PresentOpener
 							if (presentrandom != null)
 							{
 
-								if (presentrandom == ItemID.RedRyder)
+								switch (presentrandom)
 								{
-									player.QuickSpawnItem(presentrandom);
-									player.QuickSpawnItem(ItemID.MusketBall, Main.rand.Next(30, 61));
-								}
-								else if (presentrandom == ItemID.MrsClauseHat)
-								{
-									player.QuickSpawnItem(ItemID.MrsClauseHat);
-									player.QuickSpawnItem(ItemID.MrsClauseShirt);
-									player.QuickSpawnItem(ItemID.MrsClauseHeels);
-								}
-								else if (presentrandom == ItemID.ParkaHood)
-								{
-									player.QuickSpawnItem(ItemID.ParkaHood);
-									player.QuickSpawnItem(ItemID.ParkaCoat);
-									player.QuickSpawnItem(ItemID.ParkaPants);
-								}
-								else if (presentrandom == ItemID.TreeMask)
-								{
-									player.QuickSpawnItem(ItemID.TreeMask);
-									player.QuickSpawnItem(ItemID.TreeShirt);
-									player.QuickSpawnItem(ItemID.TreeTrunks);
-								}
-								else if (presentrandom == ItemID.Eggnog)
-								{
-									player.QuickSpawnItem(ItemID.Eggnog, Main.rand.Next(1, 4));
-								}
-								else if (presentrandom == ItemID.StarAnise)
-								{
-									player.QuickSpawnItem(ItemID.StarAnise, Main.rand.Next(20, 41));
-								}
-								else if (presentrandom == ItemID.PineTreeBlock)
-								{
-									player.QuickSpawnItem(ItemID.PineTreeBlock, Main.rand.Next(20, 50));
-								}
-								else if (presentrandom == ItemID.CandyCaneBlock)
-								{
-									player.QuickSpawnItem(ItemID.CandyCaneBlock, Main.rand.Next(20, 50));
-								}
-								else if (presentrandom == ItemID.GreenCandyCaneBlock)
-								{
-									player.QuickSpawnItem(ItemID.GreenCandyCaneBlock, Main.rand.Next(20, 50));
-								}
-								else
-								{
-									player.QuickSpawnItem(presentrandom);
+									case ItemID.RedRyder:
+										player.QuickSpawnItem(presentrandom);
+										player.QuickSpawnItem(ItemID.MusketBall, Main.rand.Next(30, 61));
+										break;
+									case ItemID.MrsClauseHat:
+										player.QuickSpawnItem(ItemID.MrsClauseHat);
+										player.QuickSpawnItem(ItemID.MrsClauseShirt);
+										player.QuickSpawnItem(ItemID.MrsClauseHeels);
+										break;
+									case ItemID.ParkaHood:
+										player.QuickSpawnItem(ItemID.ParkaHood);
+										player.QuickSpawnItem(ItemID.ParkaCoat);
+										player.QuickSpawnItem(ItemID.ParkaPants);
+										break;
+									case ItemID.TreeMask:
+										player.QuickSpawnItem(ItemID.TreeMask);
+										player.QuickSpawnItem(ItemID.TreeShirt);
+										player.QuickSpawnItem(ItemID.TreeTrunks);
+										break;
+									case ItemID.Eggnog:
+										player.QuickSpawnItem(ItemID.Eggnog, Main.rand.Next(1, 4));
+										break;
+									case ItemID.StarAnise:
+										player.QuickSpawnItem(ItemID.StarAnise, Main.rand.Next(20, 41));
+										break;
+									case ItemID.PineTreeBlock:
+										player.QuickSpawnItem(ItemID.PineTreeBlock, Main.rand.Next(20, 50));
+										break;
+									case ItemID.CandyCaneBlock:
+										player.QuickSpawnItem(ItemID.CandyCaneBlock, Main.rand.Next(20, 50));
+										break;
+									case ItemID.GreenCandyCaneBlock:
+										player.QuickSpawnItem(ItemID.GreenCandyCaneBlock, Main.rand.Next(20, 50));
+										break;
+									default:
+										player.QuickSpawnItem(presentrandom);
+										break;
 								}
 								presentrandom.Clear();
 							}
