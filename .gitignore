@@ -1,5 +1,6 @@
-.vs
-PresentOpener/PresentOpener.csproj.user
-PresentOpener/.vs
-PresentOpener/bin
-PresentOpener/obj
+bin*
+obj*
+Properties*
+.git*
+.vs*
+*.csproj.user
