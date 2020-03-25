@@ -32,40 +32,52 @@ namespace PresentOpener
 
 			[Header("Configurable Category Scales")]
 			[Range(0.25f, 4f)]
+			[Increment(0.25f)]
 			[Label("Snowglobe Chance Scale")]
 			public float SnowGlobeScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
+			[Increment(0.25f)]
 			[Label("Coal Chance Scale")]
 			public float CoalScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
+			[Increment(0.25f)]
 			[Label("Dog Whistle Scale")]
 			public float WhistleScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
+			[Increment(0.25f)]
 			[Label("Rare Items Scale")]
 			[Tooltip("Includes Red Ryder, Candy Tools, Fruitcake Chakram, and Hand Warmer.")]
 			public float PresentRareItemScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
+			[Increment(0.25f)]
 			[Label("Toolbox Scale")]
 			public float ToolboxScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
+			[Increment(0.25f)]
 			[Label("Reindeer Antlers Scale")]
 			public float AntlersScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
+			[Increment(0.25f)]
 			[Label("Holly Scale")]
 			public float HollyScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
+			[Increment(0.25f)]
 			[Label("Vanity clothes Scale")]
 			public float VanityScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
+			[Increment(0.25f)]
 			[Label("Food Scale")]
 			public float FoodScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
+			[Increment(0.25f)]
 			[Label("Eggnog Scale")]
 			public float EggnogScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
+			[Increment(0.25f)]
 			[Label("Star Anise Scale")]
 			public float StarAniseScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
+			[Increment(0.25f)]
 			[Label("Block Scale")]
 			public float BlockScale { get; set; } = 1f;
 		}
@@ -80,16 +92,20 @@ namespace PresentOpener
 
 			[Header("Configurable Category Scales")]
 			[Range(0.25f, 4f)]
+			[Increment(0.25f)]
 			[Label("Rare Items Scale")]
 			[Tooltip("Includes Unluckly Yarn and Bat Hook.")]
 			public float GoodieRareItemScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
+			[Increment(0.25f)]
 			[Label("Rotten Egg Scale")]
 			public float RottenEggScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
+			[Increment(0.25f)]
 			[Label("Painting Scale")]
 			public float PaintingScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
+			[Increment(0.25f)]
 			[Label("Costume Scale")]
 			public float CostumeScale { get; set; } = 1f;
 		}
@@ -103,27 +119,32 @@ namespace PresentOpener
 			[Header("Thorium Mod")] 
 			[Label("Mistletoe Scale")]
 			[Range(0.25f, 4f)]
+			[Increment(0.25f)]
 			public float ThoriumMistleScale { get; set; } = 1f;
 
 			[Header("Spirit Mod")]
 			[Label("Apple Scale")]
 			[Tooltip("Includes Apple, Apple, Apple, and Apple.")]
 			[Range(0.25f, 4f)]
+			[Increment(0.25f)]
 			public float AppleScale { get; set; } = 1f;
 			[Label("Candy Scale")]
 			[Tooltip("Includes Normal, Health, Mana Candy, Taffy, Chocolate Bars, and Lolipops.")]
 			[Range(0.25f, 4f)]
+			[Increment(0.25f)]
 			public float SpiritCandyScale { get; set; } = 1f;
 			[Label("Mystery Candy Scale")]
 			[Range(0.25f, 4f)]
+			[Increment(0.25f)]
 			public float MysteryCandyScale { get; set; } = 1f;
 			[Label("Spirit Dev Mask Scale")]
 			[Tooltip("Includes Iggy, Svante, Leemyy, Schmo, Cake Lord, Yuyutsu, Vladimier, Graydee, Blaze, Katchow masks.")]
 			[Range(0.25f, 4f)]
+			[Increment(0.25f)]
 			public float SpiritDevMaskScale { get; set; } = 1f;
 
 		}
-		public bool IsPlayerLocalServerOwner(Player player) //Little hacky
+		public bool IsPlayerLocalServerOwner(Player player) //coming back to this code after 3 months and I still can't follow it but it works I guess
 		{
 			for (int plr = 0; plr < Main.maxPlayers; plr++)
 			{

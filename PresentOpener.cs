@@ -8,7 +8,7 @@ namespace PresentOpener
 {
 	public class PresentOpener : Mod
 	{
-		public static string GithubUserName => "Plantterror"; //These 2 lines are for ModHelpers Github intergration.
+		public static string GithubUserName => "Plantterror"; //These 2 lines are for ModHelpers Github intergration, just in case.
 		public static string GithubProjectName => "PresentOpener";
 		internal static PresentOpenerConfig Config;
 		internal static PresentOpener Instance;

@@ -2,6 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
+using static Terraria.ModLoader.ModContent;
 
 namespace PresentOpener
 {
@@ -13,7 +14,7 @@ namespace PresentOpener
 			{
 				case "present":
 					{
-						PresentOpenerConfig config = ModContent.GetInstance<PresentOpenerConfig>();
+						PresentOpenerConfig config = new PresentOpenerConfig();
 						if (!config.presentmenu.DisablePresentConfig)
 						{
 
@@ -108,7 +109,7 @@ namespace PresentOpener
 
 				case "goodieBag":
 					{
-						PresentOpenerConfig config = ModContent.GetInstance<PresentOpenerConfig>();
+						PresentOpenerConfig config = new PresentOpenerConfig();
 
 						if (!config.goodiemenu.DisableGoodieConfig)
 						{
@@ -176,115 +177,98 @@ namespace PresentOpener
 
 							if (goodierandom != null)
 							{
-								if (goodierandom == ItemID.RottenEgg)
+								switch (goodierandom)
 								{
-									player.QuickSpawnItem(goodierandom, Main.rand.Next(10, 41));
-								}
-								else if (goodierandom == ItemID.CatMask)
-								{
-									player.QuickSpawnItem(ItemID.CatMask);
-									player.QuickSpawnItem(ItemID.CatShirt);
-									player.QuickSpawnItem(ItemID.CatPants);
-								}
-								else if (goodierandom == ItemID.CreeperMask)
-								{
-									player.QuickSpawnItem(ItemID.CreeperMask);
-									player.QuickSpawnItem(ItemID.CreeperShirt);
-									player.QuickSpawnItem(ItemID.CreeperPants);
-								}
-								else if (goodierandom == ItemID.PumpkinMask)
-								{
-									player.QuickSpawnItem(ItemID.PumpkinMask);
-									player.QuickSpawnItem(ItemID.PumpkinShirt);
-									player.QuickSpawnItem(ItemID.PumpkinPants);
-								}
-								else if (goodierandom == ItemID.SpaceCreatureMask)
-								{
-									player.QuickSpawnItem(ItemID.SpaceCreatureMask);
-									player.QuickSpawnItem(ItemID.SpaceCreatureShirt);
-									player.QuickSpawnItem(ItemID.SpaceCreaturePants);
-								}
-								else if (goodierandom == ItemID.KarateTortoiseMask)
-								{
-									player.QuickSpawnItem(ItemID.KarateTortoiseMask);
-									player.QuickSpawnItem(ItemID.KarateTortoiseShirt);
-									player.QuickSpawnItem(ItemID.KarateTortoisePants);
-								}
-								else if (goodierandom == ItemID.FoxMask)
-								{
-									player.QuickSpawnItem(ItemID.FoxMask);
-									player.QuickSpawnItem(ItemID.FoxShirt);
-									player.QuickSpawnItem(ItemID.FoxPants);
-								}
-								else if (goodierandom == ItemID.WitchHat)
-								{
-									player.QuickSpawnItem(ItemID.WitchHat);
-									player.QuickSpawnItem(ItemID.WitchDress);
-									player.QuickSpawnItem(ItemID.WitchBoots);
-								}
-								else if (goodierandom == ItemID.VampireMask)
-								{
-									player.QuickSpawnItem(ItemID.VampireMask);
-									player.QuickSpawnItem(ItemID.VampireShirt);
-									player.QuickSpawnItem(ItemID.VampirePants);
-								}
-								else if (goodierandom == ItemID.LeprechaunHat)
-								{
-									player.QuickSpawnItem(ItemID.LeprechaunHat);
-									player.QuickSpawnItem(ItemID.LeprechaunShirt);
-									player.QuickSpawnItem(ItemID.LeprechaunPants);
-								}
-								else if (goodierandom == ItemID.RobotMask)
-								{
-									player.QuickSpawnItem(ItemID.RobotMask);
-									player.QuickSpawnItem(ItemID.RobotShirt);
-									player.QuickSpawnItem(ItemID.RobotPants);
-								}
-								else if (goodierandom == ItemID.PrincessHat)
-								{
-									player.QuickSpawnItem(ItemID.PrincessHat);
-									player.QuickSpawnItem(ItemID.PrincessDressNew);
-								}
-								else if (goodierandom == ItemID.TreasureHunterShirt)
-								{
-									player.QuickSpawnItem(ItemID.TreasureHunterShirt);
-									player.QuickSpawnItem(ItemID.TreasureHunterPants);
-								}
-								else if (goodierandom == ItemID.WolfMask)
-								{
-									player.QuickSpawnItem(ItemID.WolfMask);
-									player.QuickSpawnItem(ItemID.WolfShirt);
-									player.QuickSpawnItem(ItemID.WolfPants);
-								}
-								else if (goodierandom == ItemID.UnicornMask)
-								{
-									player.QuickSpawnItem(ItemID.UnicornMask);
-									player.QuickSpawnItem(ItemID.UnicornShirt);
-									player.QuickSpawnItem(ItemID.UnicornPants);
-								}
-								else if (goodierandom == ItemID.ReaperHood)
-								{
-									player.QuickSpawnItem(ItemID.ReaperHood);
-									player.QuickSpawnItem(ItemID.ReaperRobe);
-								}
-								else if (goodierandom == ItemID.PixieShirt)
-								{
-									player.QuickSpawnItem(ItemID.PixieShirt);
-									player.QuickSpawnItem(ItemID.PixiePants);
-								}
-								else if (goodierandom == ItemID.BrideofFrankensteinMask)
-								{
-									player.QuickSpawnItem(ItemID.BrideofFrankensteinMask);
-									player.QuickSpawnItem(ItemID.BrideofFrankensteinDress);
-								}
-								else if (goodierandom == ItemID.GhostMask)
-								{
-									player.QuickSpawnItem(ItemID.GhostMask);
-									player.QuickSpawnItem(ItemID.GhostShirt);
-								}
-								else
-								{
-									player.QuickSpawnItem(goodierandom);
+									case ItemID.RottenEgg:
+										player.QuickSpawnItem(goodierandom, Main.rand.Next(10, 41));
+										break;
+									case ItemID.CatMask:
+										player.QuickSpawnItem(ItemID.CatMask);
+										player.QuickSpawnItem(ItemID.CatShirt);
+										player.QuickSpawnItem(ItemID.CatPants);
+										break;
+									case ItemID.CreeperMask:
+										player.QuickSpawnItem(ItemID.CreeperMask);
+										player.QuickSpawnItem(ItemID.CreeperShirt);
+										player.QuickSpawnItem(ItemID.CreeperPants);
+										break;
+									case ItemID.PumpkinMask:
+										player.QuickSpawnItem(ItemID.PumpkinMask);
+										player.QuickSpawnItem(ItemID.PumpkinShirt);
+										player.QuickSpawnItem(ItemID.PumpkinPants);
+										break;
+									case ItemID.SpaceCreatureMask:
+										player.QuickSpawnItem(ItemID.SpaceCreatureMask);
+										player.QuickSpawnItem(ItemID.SpaceCreatureShirt);
+										player.QuickSpawnItem(ItemID.SpaceCreaturePants);
+										break;
+									case ItemID.KarateTortoiseMask:
+										player.QuickSpawnItem(ItemID.KarateTortoiseMask);
+										player.QuickSpawnItem(ItemID.KarateTortoiseShirt);
+										player.QuickSpawnItem(ItemID.KarateTortoisePants);
+										break;
+									case ItemID.FoxMask:
+										player.QuickSpawnItem(ItemID.FoxMask);
+										player.QuickSpawnItem(ItemID.FoxShirt);
+										player.QuickSpawnItem(ItemID.FoxPants);
+										break;
+									case ItemID.WitchHat:
+										player.QuickSpawnItem(ItemID.WitchHat);
+										player.QuickSpawnItem(ItemID.WitchDress);
+										player.QuickSpawnItem(ItemID.WitchBoots);
+										break;
+									case ItemID.VampireMask:
+										player.QuickSpawnItem(ItemID.VampireMask);
+										player.QuickSpawnItem(ItemID.VampireShirt);
+										player.QuickSpawnItem(ItemID.VampirePants);
+										break;
+									case ItemID.LeprechaunHat:
+										player.QuickSpawnItem(ItemID.LeprechaunHat);
+										player.QuickSpawnItem(ItemID.LeprechaunShirt);
+										player.QuickSpawnItem(ItemID.LeprechaunPants);
+										break;
+									case ItemID.RobotMask:
+										player.QuickSpawnItem(ItemID.RobotMask);
+										player.QuickSpawnItem(ItemID.RobotShirt);
+										player.QuickSpawnItem(ItemID.RobotPants);
+										break;
+									case ItemID.PrincessHat:
+										player.QuickSpawnItem(ItemID.PrincessHat);
+										player.QuickSpawnItem(ItemID.PrincessDressNew);
+										break;
+									case ItemID.TreasureHunterShirt:
+										player.QuickSpawnItem(ItemID.TreasureHunterShirt);
+										player.QuickSpawnItem(ItemID.TreasureHunterPants);
+										break;
+									case ItemID.WolfMask:
+										player.QuickSpawnItem(ItemID.WolfMask);
+										player.QuickSpawnItem(ItemID.WolfShirt);
+										player.QuickSpawnItem(ItemID.WolfPants);
+										break;
+									case ItemID.UnicornMask:
+										player.QuickSpawnItem(ItemID.UnicornMask);
+										player.QuickSpawnItem(ItemID.UnicornShirt);
+										player.QuickSpawnItem(ItemID.UnicornPants);
+										break;
+									case ItemID.ReaperHood:
+										player.QuickSpawnItem(ItemID.ReaperHood);
+										player.QuickSpawnItem(ItemID.ReaperRobe);
+										break;
+									case ItemID.PixieShirt:
+										player.QuickSpawnItem(ItemID.PixieShirt);
+										player.QuickSpawnItem(ItemID.PixiePants);
+										break;
+									case ItemID.BrideofFrankensteinMask:
+										player.QuickSpawnItem(ItemID.BrideofFrankensteinMask);
+										player.QuickSpawnItem(ItemID.BrideofFrankensteinDress);
+										break;
+									case ItemID.GhostMask:
+										player.QuickSpawnItem(ItemID.GhostMask);
+										player.QuickSpawnItem(ItemID.GhostShirt);
+										break;
+									default:
+										player.QuickSpawnItem(goodierandom);
+										break;
 								}
 								goodierandom.Clear();
 							}

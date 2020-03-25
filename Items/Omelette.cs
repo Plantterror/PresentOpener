@@ -4,7 +4,7 @@ using Terraria.ID;
 
 namespace PresentOpener.Items
 {
-	public class Omelette : ModItem //This is an unobtainable item.
+	public class Omelette : ModItem //This is an unobtainable item. I felt like it. Maybe I'll add it to an NPC shop or something.
 	{
 		public override void SetDefaults()
 		{
