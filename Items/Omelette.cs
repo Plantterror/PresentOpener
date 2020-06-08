@@ -25,6 +25,7 @@ namespace PresentOpener.Items
 
 		public override void SetStaticDefaults()
 		{
+			DisplayName.SetDefault(Language.GetTextValue("common.OmeletteItem"));
 			Tooltip.SetDefault("But I ordered a sandwich... Why the hell did I get this?");
 		}
 	}

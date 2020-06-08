@@ -1,0 +1,52 @@
+common.ConfigName=PresentOpener Konfiguration
+
+common.PresentMenuConfig=Geschenk
+common.GoodieBagMenuConfig=Goodie Beutel
+common.ModdedItemsMenuConfig=Mod Items
+
+common.ResetScalesConfigHeader=Zurücksetzen
+common.ResetScalesConfigLabel=Deaktiviere gesetzte Skalierungen
+
+common.ConfigurableCategoryConfigHeader=Konfigurierbar Kategorien Skalierungen
+
+common.SnowGlobeChanceConfig=Schneekugel Chancen Skala
+common.CoalChanceConfig=Kohle Chancen Skala
+common.DogWhistleChanceScale=Hunde pfeife Chancen Skala
+
+
+common.RareItemsScaleConfigHeader=Seltene Items Skala
+common.RareItemsScaleConfigTooltipPresentMenu=Enthält Red Ryder, Süßigkeiten Werkzeuge, Fruchtkuchen Chakram und Hand wärmer.
+
+common.ToolboxChanceScale=Werkzeugkiste Chancen Skala
+common.ReinderAntlersChanceScale=Rentier Geweih Chancen Skala
+common.HollyChanceScale=Stechpalme Chancen Skala
+common.VanityClothesChanceScale=Kosmetik Kleidung Chancen Skala
+common.FoodChanceScale=Essen Chancen Skala
+common.EggnogChanceScale=Eierlikör Chancen Skala
+common.StarAniseChanceScale=Sternenanis Chancen Skala
+common.BlockChanceScale=Blöcke Chancen Skala
+
+
+common.RareItemsScaleConfigTooltipGoodieMenu=Enthält Unglücksfaden und Fledermaus Haken.
+
+common.RottenEggChanceScale=Verfaultes Ei Chancen Skala
+common.PaintingChanceScale=Gemälde Chancen Skala
+common.CostumeChanceScale=Kostüm Chancen Skala
+
+
+common.ModdedMenuThoriumHeader=Thorium Mod
+common.MistletoeChanceScale=Mistelzweig Skala
+
+common.ModdedMenuSpiritHeader=Spirit Mod
+common.AppleChanceScale=Apfel Chancen Skala
+common.AppleChanceScaleTooltip=Enthält Äpfel, Äpfel, Äpfel und Äpfel.
+common.CandyChanceScale=Süßigkeiten Chancen Skala
+common.CandyChanceScaleTooltip=Enthält Normales, Leben, Mana Süßigkeit, Taffy, Schokolade und Lolipops.
+common.MysteryCandyChanceScale=Mysteriöse Süßigkeiten Skala
+common.SpiritDevMaskChanceScale=Spirit Programmierer Masken Skala
+common.SpiritDevMaskChanceScaleTooltip=Enthält Iggy, Svante, Leemyy, Schmo, Cake Lord, Yuyutsu, Vladimier, Graydee, Blaze, Katchow masken.
+
+
+common.NotServerHostError=Du bist nicht der Server Host, du kannst das nicht verändern.
+
+common.OmeletteItem=Omelette
