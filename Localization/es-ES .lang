@@ -1,0 +1,52 @@
+common.ConfigName=Configuración de PresentOpener
+
+common.PresentMenuConfig=Regalo
+common.GoodieBagMenuConfig=Mochila de La suerte
+common.ModdedItemsMenuConfig=Objetos de mods
+
+common.ResetScalesConfigHeader=Reiniciar
+common.ResetScalesConfigLabel=Desactivar Escalas Ajustadas
+
+common.ConfigurableCategoryConfigHeader=Categoría de Escalas Configurables
+
+common.SnowGlobeChanceConfig=Escala de Chance del Globo de Nieve 
+common.CoalChanceConfig=Escala de Chance de Carbón
+common.DogWhistleChanceScale=Escala de Chance del Silbato Para Perros 
+
+
+common.RareItemsScaleConfigHeader=Escalas de objetos escasos
+common.RareItemsScaleConfigTooltipPresentMenu=Incluye Jinete Rojo, Herramientas de Caramelo, Chakram de Tarta de Frutas, y Calientamanos.
+
+common.ToolboxChanceScale=Escala de chance de la Caja de Herramientas
+common.ReinderAntlersChanceScale=Escala de chance de las Astas de Reno
+common.HollyChanceScale=Escala de chance de Holly
+common.VanityClothesChanceScale=Escala de chance de Ropa de vanidad
+common.FoodChanceScale=Escala de chance de Comida
+common.EggnogChanceScale=Escala de chance del Ponche de huevo
+common.StarAniseChanceScale=Escala de chance del Anís Estrellado
+common.BlockChanceScale=Escala de chance de Bloques
+
+
+common.RareItemsScaleConfigTooltipGoodieMenu=Incluye el Hilo Desafortunado y el Gancho de Murciélago.
+
+common.RottenEggChanceScale=Escala de chance de Huevos Podridos
+common.PaintingChanceScale=Escala de chance de Pinturas 
+common.CostumeChanceScale=Escala de chance de Disfraces
+
+
+common.ModdedMenuThoriumHeader=Thorium Mod
+common.MistletoeChanceScale=Escala de Muérdago 
+
+common.ModdedMenuSpiritHeader=Spirit Mod
+common.AppleChanceScale=Escala de chance de Manzanas
+common.AppleChanceScaleTooltip=Incluye Manzana, Manzana, Manzana, y Manzana.
+common.CandyChanceScale=Escala de chance de Caramelo
+common.CandyChanceScaleTooltip=Incluye Normal, Vida, Caramelo de maná, Taffy, Barras de Chocolate, y Paletas.
+common.MysteryCandyChanceScale=Escala de chance de Caramelo Misterioso 
+common.SpiritDevMaskChanceScale=Escala de chance de máscaras de desarrolladores de Spirit. 
+common.SpiritDevMaskChanceScaleTooltip=Incluye máscaras de Iggy, Svante, Leemyy, Schmo, Cake Lord, Yuyutsu, Vladimier, Graydee, Blaze, Katchow.
+
+
+common.NotServerHostError=No eres el host del servidor, y no puedes cambiar esta configuración. 
+
+common.OmeletteItem=Omelet

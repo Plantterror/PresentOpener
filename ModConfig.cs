@@ -10,135 +10,135 @@ namespace PresentOpener
 	{
 		public override bool Autoload(ref string name) //Autoloading config with a name
 		{
-			name = "PresentOpener Config";
+			name = Language.GetTextValue("Mods.PresentOpener.common.ConfigName");
 			return true;
 		}
 		public override ConfigScope Mode => ConfigScope.ServerSide; //Server sided config.
 
-		[Label("Present")] //This is how you make a folder, essentially it's just a separate class.
+		[Label(Language.GetTextValue("Mods.PresentOpener.common.PresentMenuConfig"))] //This is how you make a folder, essentially it's just a separate class.
 		public PresentMenu presentmenu = new PresentMenu();
-		[Label("Goodie Bag")]
+		[Label(Language.GetTextValue("Mods.PresentOpener.common.GoodieBagMenuConfig"))]
 		public GoodieMenu goodiemenu = new GoodieMenu();
-		[Label("Modded Items")]
+		[Label(Language.GetTextValue("Mods.PresentOpener.common.ModdedItemsMenuConfig"))]
 		public ModdedMenu moddedmenu = new ModdedMenu();
 
 		[SeparatePage] //To force the class into a new page, making the folder.
 		public class PresentMenu
 		{
-			[Header("Reset")]
-			[Label("Disable Adjusted Scales")]
+			[Header(Language.GetTextValue("common.ResetScalesConfigHeader"))]
+			[Label(Language.GetTextValue("common.ResetScalesConfigLabel"))]
 			[DefaultValue(false)]
 			public bool DisablePresentConfig { get; set; }
 
-			[Header("Configurable Category Scales")]
+			[Header(Language.GetTextValue("common.ConfigurableCategoryConfigHeader"))]
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
-			[Label("Snowglobe Chance Scale")]
+			[Label(Language.GetTextValue("common.SnowGlobeChanceConfig"))]
 			public float SnowGlobeScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
-			[Label("Coal Chance Scale")]
+			[Label(Language.GetTextValue("common.CoalChanceConfig"))]
 			public float CoalScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
-			[Label("Dog Whistle Scale")]
+			[Label(Language.GetTextValue("common.DogWhistleChanceScale"))]
 			public float WhistleScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
-			[Label("Rare Items Scale")]
-			[Tooltip("Includes Red Ryder, Candy Tools, Fruitcake Chakram, and Hand Warmer.")]
+			[Label(Language.GetTextValue("common.RareItemsScaleConfigHeader"))]
+			[Tooltip(Language.GetTextValue("common.RareItemsScaleConfigTooltipPresentMenu"))]
 			public float PresentRareItemScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
-			[Label("Toolbox Scale")]
+			[Label(Language.GetTextValue("common.ToolboxChanceScale"))]
 			public float ToolboxScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
-			[Label("Reindeer Antlers Scale")]
+			[Label(Language.GetTextValue("common.ReinderAntlersChanceScale"))]
 			public float AntlersScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
-			[Label("Holly Scale")]
+			[Label(Language.GetTextValue("common.HollyChanceScale"))]
 			public float HollyScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
-			[Label("Vanity clothes Scale")]
+			[Label(Language.GetTextValue("common.VanityClothesChanceScale"))]
 			public float VanityScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
-			[Label("Food Scale")]
+			[Label(Language.GetTextValue("common.FoodChanceScale"))]
 			public float FoodScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
-			[Label("Eggnog Scale")]
+			[Label(Language.GetTextValue("common.EggnogChanceScale"))]
 			public float EggnogScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
-			[Label("Star Anise Scale")]
+			[Label(Language.GetTextValue("common.StarAniseChanceScale"))]
 			public float StarAniseScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
-			[Label("Block Scale")]
+			[Label(Language.GetTextValue("common.BlockChanceScale"))]
 			public float BlockScale { get; set; } = 1f;
 		}
 
 		[SeparatePage]
 		public class GoodieMenu
 		{
-			[Header("Reset")]
-			[Label("Disable Adjusted Scales")]
+			[Header(Language.GetTextValue("common.ResetScalesConfigHeader"))]
+			[Label(Language.GetTextValue("common.ResetScalesConfigLabel"))]
 			[DefaultValue(false)]
 			public bool DisableGoodieConfig { get; set; }
 
-			[Header("Configurable Category Scales")]
+			[Header(Language.GetTextValue("common.ConfigurableCategoryConfigHeader"))]
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
-			[Label("Rare Items Scale")]
-			[Tooltip("Includes Unluckly Yarn and Bat Hook.")]
+			[Label(Language.GetTextValue("common.RareItemsScaleConfigHeader"))]
+			[Tooltip(Language.GetTextValue("common.RareItemsScaleConfigTooltipGoodieMenu"))]
 			public float GoodieRareItemScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
-			[Label("Rotten Egg Scale")]
+			[Label(Language.GetTextValue("common.RottenEggChanceScale"))]
 			public float RottenEggScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
-			[Label("Painting Scale")]
+			[Label(Language.GetTextValue("common.PaintingChanceScale"))]
 			public float PaintingScale { get; set; } = 1f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
-			[Label("Costume Scale")]
+			[Label(Language.GetTextValue("common.CostumeChanceScale"))]
 			public float CostumeScale { get; set; } = 1f;
 		}
 		[SeparatePage]
 		public class ModdedMenu
 		{
-			[Header("Reset")]
-			[Label("Disable Modded Configs")]
+			[Header(Language.GetTextValue("common.ResetScalesConfigHeader"))]
+			[Label(Language.GetTextValue("common.ResetScalesConfigLabel"))]
 			public bool DisableModdedConfigs { get; set; }
 
-			[Header("Thorium Mod")] 
-			[Label("Mistletoe Scale")]
+			[Header(Language.GetTextValue("common.ModdedMenuThoriumHeader"))] 
+			[Label(Language.GetTextValue("common.MistletoeChanceScale"))]
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
 			public float ThoriumMistleScale { get; set; } = 1f;
 
-			[Header("Spirit Mod")]
-			[Label("Apple Scale")]
-			[Tooltip("Includes Apple, Apple, Apple, and Apple.")]
+			[Header(Language.GetTextValue("common.ModdedMenuSpiritHeader"))]
+			[Label(Language.GetTextValue("common.AppleChanceScale"))]
+			[Tooltip(Language.GetTextValue("common.AppleChanceScaleTooltip"))]
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
 			public float AppleScale { get; set; } = 1f;
-			[Label("Candy Scale")]
-			[Tooltip("Includes Normal, Health, Mana Candy, Taffy, Chocolate Bars, and Lolipops.")]
+			[Label(Language.GetTextValue("common.CandyChanceScale"))]
+			[Tooltip(Language.GetTextValue("common.CandyChanceScaleTooltip"))]
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
 			public float SpiritCandyScale { get; set; } = 1f;
-			[Label("Mystery Candy Scale")]
+			[Label(Language.GetTextValue("common.MysteryCandyChanceScale"))]
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
 			public float MysteryCandyScale { get; set; } = 1f;
-			[Label("Spirit Dev Mask Scale")]
-			[Tooltip("Includes Iggy, Svante, Leemyy, Schmo, Cake Lord, Yuyutsu, Vladimier, Graydee, Blaze, Katchow masks.")]
+			[Label(Language.GetTextValue("common.SpiritDevMaskChanceScale"))]
+			[Tooltip(Language.GetTextValue("common.SpiritDevMaskChanceScale"))]
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
 			public float SpiritDevMaskScale { get; set; } = 1f;
@@ -164,7 +164,7 @@ namespace PresentOpener
 			}
 			else
 			{
-				message = "You are not the server host, and cannot change these settings.";
+				message = Language.GetTextValue("common.NotServerHostError");
 				return false;
 			}
 		}

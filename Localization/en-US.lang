@@ -1,0 +1,52 @@
+common.ConfigName=PresentOpener Config
+
+common.PresentMenuConfig=Present
+common.GoodieBagMenuConfig=Goodie Bag
+common.ModdedItemsMenuConfig=Modded Items
+
+common.ResetScalesConfigHeader=Reset
+common.ResetScalesConfigLabel=Disable Adjusted Scales
+
+common.ConfigurableCategoryConfigHeader=Configurable Category Scales
+
+common.SnowGlobeChanceConfig=Snowglobe Chance Scale
+common.CoalChanceConfig=Coal Chance Scale
+common.DogWhistleChanceScale=Dog Whistle chance Scale
+
+
+common.RareItemsScaleConfigHeader=Rare Items Scale
+common.RareItemsScaleConfigTooltipPresentMenu=Includes Red Ryder, Candy Tools, Fruitcake Chakram, and Hand Warmer.
+
+common.ToolboxChanceScale=Toolbox chance Scale
+common.ReinderAntlersChanceScale=Reindeer Antlers chance Scale
+common.HollyChanceScale=Holly chance Scale
+common.VanityClothesChanceScale=Vanity clothes chance Scale
+common.FoodChanceScale=Food chance Scale
+common.EggnogChanceScale=Eggnog chance Scale
+common.StarAniseChanceScale=Star Anise chance Scale
+common.BlockChanceScale=Block chance Scale
+
+
+common.RareItemsScaleConfigTooltipGoodieMenu=Includes Unluckly Yarn and Bat Hook.
+
+common.RottenEggChanceScale=Rotten Egg chance Scale
+common.PaintingChanceScale=Painting chance Scale
+common.CostumeChanceScale=Costume chance Scale
+
+
+common.ModdedMenuThoriumHeader=Thorium Mod
+common.MistletoeChanceScale=Mistletoe Scale
+
+common.ModdedMenuSpiritHeader=Spirit Mod
+common.AppleChanceScale=Apple chance Scale
+common.AppleChanceScaleTooltip=Includes Apple, Apple, Apple, and Apple.
+common.CandyChanceScale=Candy chance Scale
+common.CandyChanceScaleTooltip=Includes Normal, Health, Mana Candy, Taffy, Chocolate Bars, and Lolipops.
+common.MysteryCandyChanceScale=Mystery Candy Scale
+common.SpiritDevMaskChanceScale=Spirit Dev Mask Scale
+common.SpiritDevMaskChanceScaleTooltip=Includes Iggy, Svante, Leemyy, Schmo, Cake Lord, Yuyutsu, Vladimier, Graydee, Blaze, Katchow masks.
+
+
+common.NotServerHostError=You are not the server host, and cannot change these settings.
+
+common.OmeletteItem=Omelette
