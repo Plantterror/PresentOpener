@@ -1,19 +1,10 @@
-﻿v2.1.1.1
-- Fixed "Reset Defaults" button defaulting each scale to 0.
-- Config no longer freaks out and gives you a decimal like 0.2489, scales every 0.25 now
-- Removed processors and the recipes with them. It was nice knowing them, but Fargo beat me to that.
-- Presents and goodie bags can be earned outside of Christmas and Halloween, at a much lower chance.
-- Minor Code improvements
-- Fixed a recurring bug where the mod dev would go on hiatus over fixes... again... Let's hope it works this time.
+﻿[i:1869] v3.0 [i:1869]
+- Yes, I've rebooted this shitty mod for the third time now.
+- Processors are back, and with a stylish UI to let you "unwrap" Presents and Goodie Bags!
+- Added a few items that controls the power of dropping rarer itemss (still customizable)
+- Yet more code optimizations behind the back because I'm bad
+- German and Spanish translations.
+- Deleted my life, too confusing for new players.
 
-Unlike real life, this mod lets you choose what you get from your presents! Well, to an extent. You can use the ModConfig to adjust the rate at which you can get rare items from presents and goodie bags!
-
-Changelog (Not including minor releases):
-1.0 - Mod Released
-1.0.1 - Added Coal to the list of crafts.
-1.1 - Added Thorium support with their Mistletoe item.
-1.2 - Added Spirit support for all the items in the Goodie Bags.
-2.0 - Revamped crafting stations. Doubled the cost of all recipes for balance.
-2.0.1 - Added a recipe to make presents and goodie bags.
-2.1 - 0.11 code changes, New icon, Processor tweaking, ModConfigs, Added and Finalized recipes.
-2.1.1 - Config support for Modded items inside the bags, and fixed these items not dropping.
+Unlike real life, this mod lets you choose what you get from your presents!
+You can craft the Present and Goodie Processor through a variety of hardmode materals. Once unlocked, you can place a Present or Goodie Bag in them to choose exactly the type of item you want from your bag!

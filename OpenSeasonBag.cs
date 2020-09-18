@@ -7,8 +7,8 @@ using static Terraria.ModLoader.ModContent;
 namespace PresentOpener
 {
 	public class OpenSeasonBag : GlobalItem //This class is solely to adjust the Present and Goodie bag chances to fit the config.
-	{
-		public override bool PreOpenVanillaBag(string context, Player player, int arg)
+	{ //I'd like to burn this in a fire someday.
+		public override bool PreOpenVanillaBag(string context, Player player, int arg) 
 		{
 			switch (context)
 			{
@@ -22,7 +22,7 @@ namespace PresentOpener
 
 							if (Main.hardMode)
 							{
-								presentrandom.Add(ItemID.SnowGlobe, 1f / 5f * config.presentmenu.SnowGlobeScale);
+								presentrandom.Add(ItemID.SnowGlobe, 1f / 5f * config.presentmenu.SnowGlobeScale); //And no, I can't just use a switch statement here, as much as I had liked to. Since these scale based on the configs, the values aren't static.
 							}
 							presentrandom.Add(ItemID.Coal, 1f / 30f * config.presentmenu.CoalScale);
 							presentrandom.Add(ItemID.DogWhistle, 1f / 419f * config.presentmenu.WhistleScale);

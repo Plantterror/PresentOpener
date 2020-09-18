@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.ComponentModel;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader.Config;
 
 namespace PresentOpener
@@ -10,7 +11,7 @@ namespace PresentOpener
 	{
 		public override bool Autoload(ref string name) //Autoloading config with a name
 		{
-			name = Language.GetTextValue("Mods.PresentOpener.common.ConfigName");
+			name = Language.GetTextValue("Mods.PresentOpener.common.ConfigName"); //I'd like to personally thank TheStachelFisch for imploding this config with Localization.
 			return true;
 		}
 		public override ConfigScope Mode => ConfigScope.ServerSide; //Server sided config.
@@ -34,36 +35,36 @@ namespace PresentOpener
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
 			[Label(Language.GetTextValue("common.SnowGlobeChanceConfig"))]
-			public float SnowGlobeScale { get; set; } = 1f;
+			public float SnowGlobeScale { get; set; } = 1.5f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
 			[Label(Language.GetTextValue("common.CoalChanceConfig"))]
-			public float CoalScale { get; set; } = 1f;
+			public float CoalScale { get; set; } = 0.5f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
 			[Label(Language.GetTextValue("common.DogWhistleChanceScale"))]
-			public float WhistleScale { get; set; } = 1f;
+			public float WhistleScale { get; set; } = 1.25f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
 			[Label(Language.GetTextValue("common.RareItemsScaleConfigHeader"))]
 			[Tooltip(Language.GetTextValue("common.RareItemsScaleConfigTooltipPresentMenu"))]
-			public float PresentRareItemScale { get; set; } = 1f;
+			public float PresentRareItemScale { get; set; } = 1.25f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
 			[Label(Language.GetTextValue("common.ToolboxChanceScale"))]
-			public float ToolboxScale { get; set; } = 1f;
+			public float ToolboxScale { get; set; } = 1.25f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
 			[Label(Language.GetTextValue("common.ReinderAntlersChanceScale"))]
-			public float AntlersScale { get; set; } = 1f;
+			public float AntlersScale { get; set; } = 0.75f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
 			[Label(Language.GetTextValue("common.HollyChanceScale"))]
-			public float HollyScale { get; set; } = 1f;
+			public float HollyScale { get; set; } = 0.75f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
 			[Label(Language.GetTextValue("common.VanityClothesChanceScale"))]
-			public float VanityScale { get; set; } = 1f;
+			public float VanityScale { get; set; } = 0.75f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
 			[Label(Language.GetTextValue("common.FoodChanceScale"))]
@@ -95,19 +96,19 @@ namespace PresentOpener
 			[Increment(0.25f)]
 			[Label(Language.GetTextValue("common.RareItemsScaleConfigHeader"))]
 			[Tooltip(Language.GetTextValue("common.RareItemsScaleConfigTooltipGoodieMenu"))]
-			public float GoodieRareItemScale { get; set; } = 1f;
+			public float GoodieRareItemScale { get; set; } = 1.25f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
 			[Label(Language.GetTextValue("common.RottenEggChanceScale"))]
-			public float RottenEggScale { get; set; } = 1f;
+			public float RottenEggScale { get; set; } = 0.75f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
 			[Label(Language.GetTextValue("common.PaintingChanceScale"))]
-			public float PaintingScale { get; set; } = 1f;
+			public float PaintingScale { get; set; } = 0.75f;
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
 			[Label(Language.GetTextValue("common.CostumeChanceScale"))]
-			public float CostumeScale { get; set; } = 1f;
+			public float CostumeScale { get; set; } = 0.75f;
 		}
 		[SeparatePage]
 		public class ModdedMenu
@@ -127,7 +128,7 @@ namespace PresentOpener
 			[Tooltip(Language.GetTextValue("common.AppleChanceScaleTooltip"))]
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
-			public float AppleScale { get; set; } = 1f;
+			public float AppleScale { get; set; } = 0.5f;
 			[Label(Language.GetTextValue("common.CandyChanceScale"))]
 			[Tooltip(Language.GetTextValue("common.CandyChanceScaleTooltip"))]
 			[Range(0.25f, 4f)]
@@ -141,7 +142,7 @@ namespace PresentOpener
 			[Tooltip(Language.GetTextValue("common.SpiritDevMaskChanceScale"))]
 			[Range(0.25f, 4f)]
 			[Increment(0.25f)]
-			public float SpiritDevMaskScale { get; set; } = 1f;
+			public float SpiritDevMaskScale { get; set; } = 0.75f;
 
 		}
 		public bool IsPlayerLocalServerOwner(Player player) //coming back to this code after 3 months and I still can't follow it but it works I guess
@@ -158,15 +159,13 @@ namespace PresentOpener
 		}
 		public override bool AcceptClientChanges(ModConfig pendingConfig, int whoAmI, ref string message)
 		{
-			if (IsPlayerLocalServerOwner(Main.LocalPlayer))
-			{
-				return true;
-			}
-			else
+			if (!IsPlayerLocalServerOwner(Main.LocalPlayer)) //If the player is not the Host of a server, deny them changing the config
 			{
 				message = Language.GetTextValue("common.NotServerHostError");
 				return false;
 			}
+			else return true;
+			
 		}
 	}
 }
